@@ -1,4 +1,5 @@
 # clojure-playground
+[![Build Status](https://travis-ci.org/Tsgzj/clojure-playground.svg?branch=master)](https://travis-ci.org/Tsgzj/clojure-playground)
 
 A Clojure playground
 
