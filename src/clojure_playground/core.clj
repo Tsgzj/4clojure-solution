@@ -16,3 +16,9 @@
   "Seems the reduce version is fater, thanks to lazyness of range(?)"
   [x]
   (reduce *' (range 1 (inc x))))
+
+(defn bfs
+  [& tree]
+  (if (seq tree)
+    (concat (map first tree)
+            (apply bfs (mapcat rest tree)))))
