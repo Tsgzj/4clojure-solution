@@ -13,3 +13,8 @@
 (deftest bfs-test
   (testing "Simple test for BFS"
     (is (= (bfs [1 [2 [4]] [3 [5]]]) '(1 2 3 4 5)))))
+
+(deftest dfs-test
+  (testing "Simple test for DFS"
+    (is (= (dfs [1]) '(1)))
+    (is (= (dfs [1 [2 [3] [4]] [6 [5]]]) '(1 2 3 4 6 5)))))
