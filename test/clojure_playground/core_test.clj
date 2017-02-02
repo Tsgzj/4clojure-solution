@@ -9,3 +9,7 @@
 (deftest factorial-test
   (testing "Factorial with factorial-reduce"
     (is (= (factorial 20) )2432902008176640000)))
+
+(deftest bfs-test
+  (testing "Simple test for BFS"
+    (is (= (bfs [1 [2 [4]] [3 [5]]]) '(1 2 3 4 5)))))
