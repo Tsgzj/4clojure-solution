@@ -27,3 +27,12 @@
     (is (= true (n27 '(1 1 3 3 1 1))))
     (is (= false (n27 '(1 2 3 4 5))))
     (is (= false (n27 ''(:a :b :c))))))
+
+(deftest clojure-n22-test
+  (testing "4clojure n27"
+    (is (= 5  (n22 '(1 2 3 3 1))))
+    (is (= 11 (n22 "Hello World")))
+    (is (= 3  (n22 [[1 2] [3 4] [5 6]])))
+    (is (= 1  (n22 '(13))))
+    (is (= 3  (n22 '(:a :b :c))))
+    ))

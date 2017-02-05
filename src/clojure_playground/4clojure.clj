@@ -1,5 +1,14 @@
 (ns clojure-playground.4clojure)
 
+(defn n22
+  "https://www.4clojure.com/problem/22#prob-title Count a sequence"
+  [x]
+  (letfn [(count-sequence-helper [x n]
+            (if (empty? x)
+              n
+              (count-sequence-helper (rest x) (inc n))))]
+    (count-sequence-helper x 0)))
+
 (defn n27
   "https://www.4clojure.com/problem/27#prob-title Palindrome Detector"
   [x]
