@@ -26,6 +26,12 @@
   ;; (reducet conj [] list)
   (reduce conj () list))
 
+(defn n24
+  "https://www.4clojure.com/problem/24#prob-title Sum it up"
+  [list]
+  ;; basic reduce
+  (reduce + list))
+
 (defn n27
   "https://www.4clojure.com/problem/27#prob-title Palindrome Detector"
   [x]
