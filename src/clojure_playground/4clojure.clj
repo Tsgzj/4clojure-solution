@@ -32,6 +32,12 @@
   ;; basic reduce
   (reduce + list))
 
+(defn n25
+  "https://www.4clojure.com/problem/25#prob-title Odd numbers"
+  [list]
+  (filter odd? list))
+
+
 (defn n27
   "https://www.4clojure.com/problem/27#prob-title Palindrome Detector"
   [x]
