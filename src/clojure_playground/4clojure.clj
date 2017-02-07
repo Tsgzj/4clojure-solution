@@ -37,6 +37,21 @@
   [list]
   (filter odd? list))
 
+(defn n26
+  "https://www.4clojure.com/problem/26#prob-title Fibosacci Sequence"
+  ;; not an optimal implementation
+  ;; but it `works`
+  [x]
+  (if (= x 1)
+    [1]
+    (if (= x 2)
+      [1 1]
+      (let
+          [prev-list (n26 (dec x))]
+        (conj
+         prev-list
+         (+ (last prev-list)
+            (last (butlast prev-list))))))))
 
 (defn n27
   "https://www.4clojure.com/problem/27#prob-title Palindrome Detector"
