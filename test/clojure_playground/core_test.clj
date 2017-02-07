@@ -20,6 +20,13 @@
     (is (= (dfs [1]) '(1)))
     (is (= (dfs [1 [2 [3] [4]] [6 [5]]]) '(1 2 3 4 6 5)))))
 
+(deftest clojure-n21-test
+  (testing "4clojure n21"
+    (is (= (n21 '(4 5 6 7) 2) 6))
+    (is (= (n21 [:a :b :c] 0) :a))
+    (is (= (n21 [1 2 3 4] 1) 2))
+    (is (= (n21 '([1 2] [3 4] [5 6]) 2) [5 6]))))
+
 (deftest clojure-n27-test
   (testing "4clojure n27"
     (is (= true (n27 "racecar")))
@@ -36,9 +43,8 @@
     (is (= 1  (n22 '(13))))
     (is (= 3  (n22 '(:a :b :c))))))
 
-(deftest clojure-n21-test
-  (testing "4clojure n21"
-    (is (n21 '(4 5 6 7) 2) 6)
-    (is (n21 [:a :b :c] 0) :a)
-    (is (n21 [1 2 3 4] 1) 2)
-    (is (n21 '([1 2] [3 4] [5 6]) 2) [5 6])))
+(deftest clojure-n23-test
+  (testing "4clojure n23"
+    (is (= (n23 [1 2 3 4 5]) [5 4 3 2 1]))
+    (is (= (n23 (sorted-set 5 7 2 7)) '(7 5 2)))
+    (is (= (n23 [[1 2][3 4][5 6]]) [[5 6][3 4][1 2]]))))

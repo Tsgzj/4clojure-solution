@@ -16,6 +16,16 @@
               (count-sequence-helper (rest x) (inc n))))]
     (count-sequence-helper x 0)))
 
+(defn n23
+  "https://www.4clojure.com/problem/23#prob-title Reverse sequence"
+  [list]
+  ;; notice that (conj [1 2 3] 1) return [1 2 3 1]
+  ;; while (conj (1 2 3) 1) return (1 1 2 3)
+  ;; it always adds the item to the most `efficient` place
+  ;; this will return the sequence of same order
+  ;; (reducet conj [] list)
+  (reduce conj () list))
+
 (defn n27
   "https://www.4clojure.com/problem/27#prob-title Palindrome Detector"
   [x]
