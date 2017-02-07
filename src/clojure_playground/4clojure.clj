@@ -53,6 +53,17 @@
          (+ (last prev-list)
             (last (butlast prev-list))))))))
 
+(defn fib
+  [x]
+  (letfn [(fib-helper
+            [x prev cur]
+            (if (= x 0)
+              cur
+              (fib-helper (dec x) cur (+ prev cur))))]
+    (fib-helper (dec x) 0 1)))
+;; a better version of fibonacci
+;; but not sequence
+
 (defn n27
   "https://www.4clojure.com/problem/27#prob-title Palindrome Detector"
   [x]
