@@ -69,3 +69,11 @@
   [x]
   (= (seq x) (reverse x)))
 ;; seq "racecar" retuerns '(\r \a \c \e \c \a \r)
+
+(defn n28
+  "https://www.4clojure.com/problem/28 Flatten sequence"
+  [x]
+  (if (coll? x)
+    ;;(apply concat (map n28 x)) equals to
+    (mapcat n28 x)
+    (list x)))
