@@ -1,7 +1,8 @@
 (ns clojure-playground.core-test
   (:require [clojure.test :refer :all]
             [clojure-playground.core :refer :all]
-            [clojure-playground.4clojure :refer :all]))
+            [clojure-playground.4clojure :refer :all]
+            [clojure-playground.4clojure_03x :refer :all]))
 
 (deftest a-test
   (testing "Fixed"
@@ -75,3 +76,9 @@
     (is (= (n28 '((1 2) 3 [4 [5 6]])) '(1 2 3 4 5 6)))
     (is (= (n28 ["a" ["b"] "c"]) '("a" "b" "c")))
     (is (= (n28 '((((:a))))) '(:a)))))
+
+(deftest clojure-n38-test
+  (testing "4clj n38"
+    (is (= (n38 1 8 3 4) 8))
+    (is (= (n38 30 20) 30))
+    (is (= (n38 45 67 11) 67))))
