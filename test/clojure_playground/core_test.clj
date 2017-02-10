@@ -77,6 +77,12 @@
     (is (= (n28 ["a" ["b"] "c"]) '("a" "b" "c")))
     (is (= (n28 '((((:a))))) '(:a)))))
 
+(deftest clojure-n29-test
+  (testing "4clojure n29"
+    (is (= (n29 "HeLlO, WoRlD!") "HLOWRD"))
+    (is (empty? (n29 "nothing")))
+    (is (= (n29 "$#A(*&987Zf") "AZ"))))
+
 (deftest clojure-n38-test
   (testing "4clj n38"
     (is (= (n38 1 8 3 4) 8))
