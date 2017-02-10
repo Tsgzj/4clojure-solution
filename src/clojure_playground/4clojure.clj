@@ -77,3 +77,8 @@
     ;;(apply concat (map n28 x)) equals to
     (mapcat n28 x)
     (list x)))
+
+(defn n29
+  "https://www.4clojure.com/problem/29 Get the Caps"
+  [x]
+  (apply str (filter (set (map char (range 65 91))) x)))
