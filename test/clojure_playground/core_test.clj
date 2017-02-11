@@ -83,6 +83,13 @@
     (is (empty? (n29 "nothing")))
     (is (= (n29 "$#A(*&987Zf") "AZ"))))
 
+(deftest clojure-n32-test
+  (testing "4clj n32"
+    (is (= (n32 [1 2 3]) '(1 1 2 2 3 3)))
+    (is (= (n32 [:a :a :b :b]) '(:a :a :a :a :b :b :b :b)))
+    (is (= (n32 [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4])))
+    (is (= (n32 [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4])))))
+
 (deftest clojure-n38-test
   (testing "4clj n38"
     (is (= (n38 1 8 3 4) 8))
