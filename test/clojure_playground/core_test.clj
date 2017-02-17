@@ -77,6 +77,33 @@
     (is (= (n28 ["a" ["b"] "c"]) '("a" "b" "c")))
     (is (= (n28 '((((:a))))) '(:a)))))
 
+(deftest clojure-n29-test
+  (testing "4clojure n29"
+    (is (= (n29 "HeLlO, WoRlD!") "HLOWRD"))
+    (is (empty? (n29 "nothing")))
+    (is (= (n29 "$#A(*&987Zf") "AZ"))))
+
+(deftest clojure-n32-test
+  (testing "4clj n32"
+    (is (= (n32 [1 2 3]) '(1 1 2 2 3 3)))
+    (is (= (n32 [:a :a :b :b]) '(:a :a :a :a :b :b :b :b)))
+    (is (= (n32 [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4])))
+    (is (= (n32 [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4])))))
+
+(deftest clojure-n33-test
+  (testing "4clj n33"
+    (is (= (n33 [1 2 3] 2) '(1 1 2 2 3 3)))
+    (is (= (n33 [:a :b] 4) '(:a :a :a :a :b :b :b :b)))
+    (is (= (n33 [4 5 6] 1) '(4 5 6)))
+    (is (= (n33 [[1 2] [3 4]] 2) '([1 2] [1 2] [3 4] [3 4])))
+    (is (= (n33 [44 33] 2) [44 44 33 33]))))
+
+(deftest clojure-n34-test
+  (testing "4clj n34"
+    (is (= (n34 1 4) '(1 2 3)))
+    (is (= (n34 -2 2) '(-2 -1 0 1)))
+    (is (= (n34 5 8) '(5 6 7)))))
+
 (deftest clojure-n38-test
   (testing "4clj n38"
     (is (= (n38 1 8 3 4) 8))
