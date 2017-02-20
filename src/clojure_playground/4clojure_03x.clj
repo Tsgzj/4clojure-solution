@@ -1,5 +1,10 @@
 (ns clojure-playground.4clojure_03x)
 
+(defn n30
+  "https://www.4clojure.com/problem/30 Compress a seq"
+  [x]
+  (map first (partition-by identity x)))
+
 (defn n32
   "https://www.4clojure.com/problem/32 Duplicate Seq"
   [x]

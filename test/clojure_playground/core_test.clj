@@ -83,6 +83,12 @@
     (is (empty? (n29 "nothing")))
     (is (= (n29 "$#A(*&987Zf") "AZ"))))
 
+(deftest clojure-n30-test
+  (testing "4clj n30"
+    (is (= (apply str (n30 "Leeeeeerrroyyy")) "Leroy"))
+    (is (= (n30 [1 1 2 3 3 2 2 3]) '(1 2 3 2 3)))
+    (is (= (n30 [[1 2] [1 2] [3 4] [1 2]]) '([1 2] [3 4] [1 2])))))
+
 (deftest clojure-n32-test
   (testing "4clj n32"
     (is (= (n32 [1 2 3]) '(1 1 2 2 3 3)))
