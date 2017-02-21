@@ -1,7 +1,7 @@
 (ns clojure-playground.4clojure_03x)
 
 (defn n30
-  "https://www.4clojure.com/problem/30 Compress a seq"
+  "https://www.4clojure.com/problem/30 Compress a seq/n31 will be similar"
   [x]
   (map first (partition-by identity x)))
 
@@ -27,3 +27,13 @@
 (defn n38
   "https://www.4clojure.com/problem/38 Maximum Value"
   [& arg] (reduce (fn [x y] (if (> x y) x y)) arg))
+
+(defn n39
+  "https://www.4clojure.com/problem/39#prob-title Interleave Two Seqs"
+  [x y]
+  (letfn [(helper [a b lst]
+            (if (or (empty? a)
+                    (empty? b))
+              lst
+              (helper (rest a) (rest b) (conj lst (first a) (first b)))))]
+    (helper x y [])))
