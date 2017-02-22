@@ -2,7 +2,8 @@
   (:require [clojure.test :refer :all]
             [clojure-playground.core :refer :all]
             [clojure-playground.4clojure :refer :all]
-            [clojure-playground.4clojure_03x :refer :all]))
+            [clojure-playground.4clojure_03x :refer :all]
+            [clojure-playground.4clojure_04x :refer :all]))
 
 (deftest a-test
   (testing "Fixed"
@@ -122,3 +123,17 @@
     (is (= (n39 [1 2] [3 4 5 6]) '(1 3 2 4)))
     (is (= (n39 [1 2 3 4] [5]) [1 5]))
     (is (= (n39 [30 20] [25 15]) [30 25 20 15]))))
+
+(deftest clojure-n42-test
+  (testing "4clj n42"
+    (is (= (n42 1) 1))
+    (is (= (n42 3) 6))
+    (is (= (n42 5) 120))
+    (is (= (n42 8) 40320))))
+
+(deftest clojure-n42-test
+  (testing "4clj n42"
+    (is (= (n42-low-golf 1) 1))
+    (is (= (n42-low-golf 3) 6))
+    (is (= (n42-low-golf 5) 120))
+    (is (= (n42-low-golf 8) 40320))))
