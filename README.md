@@ -1,7 +1,10 @@
-# clojure-playground
+# 4clojure-solution
 [![Build Status](https://travis-ci.org/Tsgzj/clojure-playground.svg?branch=master)](https://travis-ci.org/Tsgzj/clojure-playground)
 
-A Clojure playground
+Used to be a Clojure playground
+
+But turned to be my 4clojure solution now
+
 
 ## Usage
 

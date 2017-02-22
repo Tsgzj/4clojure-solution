@@ -1,9 +1,9 @@
-(ns clojure-playground.core-test
+(ns fclj.core-test
   (:require [clojure.test :refer :all]
-            [clojure-playground.core :refer :all]
-            [clojure-playground.4clojure :refer :all]
-            [clojure-playground.4clojure_03x :refer :all]
-            [clojure-playground.4clojure_04x :refer :all]))
+            [fclj.core :refer :all]
+            [fclj.4clojure :refer :all]
+            [fclj.4clojure_03x :refer :all]
+            [fclj.4clojure_04x :refer :all]))
 
 (deftest a-test
   (testing "Fixed"

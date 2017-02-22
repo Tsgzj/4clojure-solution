@@ -1,4 +1,4 @@
-(ns clojure-playground.4clojure_04x)
+(ns fclj.4clojure_04x)
 
 (defn n42
   "https://www.4clojure.com/problem/42 factorial"

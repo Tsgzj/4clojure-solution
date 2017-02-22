@@ -1,4 +1,4 @@
-(ns clojure-playground.4clojure)
+(ns fclj.4clojure)
 
 (defn n21
   "https://www.4clojure.com/problem/21 nth element"
