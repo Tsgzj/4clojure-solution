@@ -124,6 +124,12 @@
     (is (= (n39 [1 2 3 4] [5]) [1 5]))
     (is (= (n39 [30 20] [25 15]) [30 25 20 15]))))
 
+(deftest clojure-n41-test
+  (testing "4clj n41"
+    (is (= (n41 [1 2 3 4 5 6 7 8] 3) [1 2 4 5 7 8]))
+    (is (= (n41 [:a :b :c :d :e :f] 2) [:a :c :e]))
+    (is (= (n41 [1 2 3 4 5 6] 4) [1 2 3 5 6]))))
+
 (deftest clojure-n42-test
   (testing "4clj n42"
     (is (= (n42 1) 1))
@@ -131,7 +137,7 @@
     (is (= (n42 5) 120))
     (is (= (n42 8) 40320))))
 
-(deftest clojure-n42-test
+(deftest clojure-n42-lowgolf-test
   (testing "4clj n42"
     (is (= (n42-low-golf 1) 1))
     (is (= (n42-low-golf 3) 6))

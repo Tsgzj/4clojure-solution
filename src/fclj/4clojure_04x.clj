@@ -1,5 +1,12 @@
 (ns fclj.4clojure_04x)
 
+(defn n41
+  "https://www.4clojure.com/problem/41 drop every nth"
+  [lst n]
+  (if (< (count lst) n)
+    lst
+    (concat (take (dec n) lst) (n41 (drop n lst) n))))
+
 (defn n42
   "https://www.4clojure.com/problem/42 factorial"
   [x]
