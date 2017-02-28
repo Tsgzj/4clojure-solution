@@ -21,6 +21,10 @@
   [x]
   (reduce * (range 1 (inc x))))
 
+(defn n43
+  [lst n]
+  (apply map vector (partition n lst)))
+
 (defn n49
   "https://www.4clojure.com/problem/49#prob-title split-at"
   [n lst]

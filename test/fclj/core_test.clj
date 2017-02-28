@@ -144,6 +144,12 @@
     (is (= (n42-low-golf 5) 120))
     (is (= (n42-low-golf 8) 40320))))
 
+(deftest clojure-n43-test
+  (testing "4clj n42"
+    (is (= (n43 [1 2 3 4 5 6] 2) '((1 3 5) (2 4 6))))
+    (is (= (n43 (range 9) 3) '((0 3 6) (1 4 7) (2 5 8))))
+    (is (= (n43 (range 10) 5) '((0 5) (1 6) (2 7) (3 8) (4 9))))))
+
 (deftest clojure-n49-test
   (testing "4clj n49"
     (is (= (n49 3 [1 2 3 4 5 6]) [[1 2 3] [4 5 6]]))
