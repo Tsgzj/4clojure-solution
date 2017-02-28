@@ -25,6 +25,11 @@
   [lst n]
   (apply map vector (partition n lst)))
 
+(defn n44
+  "Rotate Sequence"
+  [n lst]
+  (take (count lst) (drop (mod n (count lst)) (cycle lst))))
+
 (defn n49
   "https://www.4clojure.com/problem/49#prob-title split-at"
   [n lst]

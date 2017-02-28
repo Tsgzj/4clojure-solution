@@ -145,10 +145,18 @@
     (is (= (n42-low-golf 8) 40320))))
 
 (deftest clojure-n43-test
-  (testing "4clj n42"
+  (testing "4clj n43"
     (is (= (n43 [1 2 3 4 5 6] 2) '((1 3 5) (2 4 6))))
     (is (= (n43 (range 9) 3) '((0 3 6) (1 4 7) (2 5 8))))
     (is (= (n43 (range 10) 5) '((0 5) (1 6) (2 7) (3 8) (4 9))))))
+
+(deftest clojure-n44-test
+  (testing "4clj n44"
+    (is (= (n44 2 [1 2 3 4 5]) '(3 4 5 1 2)))
+    (is (= (n44 -2 [1 2 3 4 5]) '(4 5 1 2 3)))
+    (is (= (n44 6 [1 2 3 4 5]) '(2 3 4 5 1)))
+    (is (= (n44 1 '(:a :b :c)) '(:b :c :a)))
+    (is (= (n44 -4 '(:a :b :c)) '(:c :a :b)))))
 
 (deftest clojure-n49-test
   (testing "4clj n49"
