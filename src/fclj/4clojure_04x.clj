@@ -30,7 +30,21 @@
   [n lst]
   (take (count lst) (drop (mod n (count lst)) (cycle lst))))
 
-(defn n49
+(defn n46
+  "Flip the order of arguments"
+  [f]
+  (fn
+    [a b]
+    (f b a)))
+
+(defn n46-enhanced
+  "A enhanced version which works on multiple arguments"
+  [f]
+  (fn
+    [& args]
+    (apply f (reverse args))))
+
+ (defn n49
   "https://www.4clojure.com/problem/49#prob-title split-at"
   [n lst]
   (vector (take n lst) (drop n lst)))

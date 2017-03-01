@@ -158,6 +158,20 @@
     (is (= (n44 1 '(:a :b :c)) '(:b :c :a)))
     (is (= (n44 -4 '(:a :b :c)) '(:c :a :b)))))
 
+(deftest clojure-n46-test
+  (testing "4clj n46"
+    (is (= 3 ((n46 nth) 2 [1 2 3 4 5])))
+    (is (= true ((n46 >) 7 8)))
+    (is (= 4 ((n46 quot) 2 8)))
+    (is (= [1 2 3] ((n46 take) [1 2 3 4 5] 3)))))
+
+(deftest clojure-n46e-test
+  (testing "4clj n46-enhanced"
+    (is (= 3 ((n46-enhanced nth) 2 [1 2 3 4 5])))
+    (is (= true ((n46-enhanced >) 7 8)))
+    (is (= 4 ((n46-enhanced quot) 2 8)))
+    (is (= [1 2 3] ((n46-enhanced take) [1 2 3 4 5] 3)))))
+
 (deftest clojure-n49-test
   (testing "4clj n49"
     (is (= (n49 3 [1 2 3 4 5 6]) [[1 2 3] [4 5 6]]))
