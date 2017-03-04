@@ -20,6 +20,13 @@
        (first)
        (#(concat (first %) (map second (rest %))))))
 
+(defn n54
+  "Partition a Sequence"
+  [n lst]
+  (if (> n (count lst))
+    []
+    (cons (take n lst) (n54 n (drop n lst)))))
+
 ;;  (defn n53
 ;;    "Longest Increasing Sub-seq"
 ;;    [lst]
