@@ -34,3 +34,9 @@
 ;;          b (filter (fn [[[a b]]] (< a b)) a)
 ;;          c (first (sort-by count > b))]
 ;;      (cons (ffirst c) (map second c))))
+
+(defn n55
+  "Count Occurences"
+  [lst]
+  (into {}
+        (map (fn [[k v]] [k (count v)]) (group-by identity lst))))
