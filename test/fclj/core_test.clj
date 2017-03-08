@@ -125,6 +125,12 @@
     (is (= (n39 [1 2 3 4] [5]) [1 5]))
     (is (= (n39 [30 20] [25 15]) [30 25 20 15]))))
 
+(deftest clojure-n40-test
+  (testing "4clj n40"
+    (is (= (n40 0 [1 2 3]) [1 0 2 0 3]))
+    (is (= (apply str (n40 ", " ["one" "two" "three"])) "one, two, three"))
+    (is (= (n40 :z [:a :b :c :d]) [:a :z :b :z :c :z :d]))))
+
 (deftest clojure-n41-test
   (testing "4clj n41"
     (is (= (n41 [1 2 3 4 5 6 7 8] 3) [1 2 4 5 7 8]))
@@ -203,3 +209,10 @@
     (is (= (n55 [1 1 2 3 2 1 1]) {1 4, 2 2, 3 1}))
     (is (= (n55 [:b :a :b :a :b]) {:a 2, :b 3}))
     (is (= (n55 '([1 2] [1 3] [1 3])) {[1 2] 1, [1 3] 2}))))
+
+(deftest clojure-n56-test
+  (testing "4clj n56"
+    (is (= (n56 [1 2 1 3 1 2 4]) [1 2 3 4]))
+    (is (= (n56 [:a :a :b :b :c :c]) [:a :b :c]))
+    (is (= (n56 '([2 4] [1 2] [1 3] [1 3])) '([2 4] [1 2] [1 3])))
+    (is (= (n56 (range 50)) (range 50)))))

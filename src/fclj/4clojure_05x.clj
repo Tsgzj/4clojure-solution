@@ -40,3 +40,22 @@
   [lst]
   (into {}
         (map (fn [[k v]] [k (count v)]) (group-by identity lst))))
+
+(defn n56
+  "Find distinct items. Note group-by does not work here since it implements hash-map
+  if the number of elements is over 32"
+  [lst]
+  (reduce
+   (fn [coll e]
+     (if (some #(= % e) coll)
+       coll
+       (conj coll e)))
+   []
+   lst))
+
+(#(apply hash-map
+       ((fn f [e h]
+          (if (= 1 (count h))
+            [(first h) e]
+            (concat [(first h) e] (f e (rest h)))))
+        % %2)) 1 '(1 2 3))

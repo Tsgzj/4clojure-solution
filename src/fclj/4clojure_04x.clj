@@ -1,5 +1,10 @@
 (ns fclj.4clojure_04x)
 
+(defn n40
+  "Interpose a seq"
+  [x lst]
+  (drop-last (interleave lst (repeat x))))
+
 (defn n41
   "https://www.4clojure.com/problem/41 drop every nth"
   [lst n]
