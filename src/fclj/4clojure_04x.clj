@@ -1,4 +1,4 @@
-(ns fclj.4clojure_04x)
+(ns fclj.4clojure-04x)
 
 (defn n40
   "Interpose a seq"

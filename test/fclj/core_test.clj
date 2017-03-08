@@ -2,9 +2,10 @@
   (:require [clojure.test :refer :all]
             [fclj.core :refer :all]
             [fclj.4clojure :refer :all]
-            [fclj.4clojure_03x :refer :all]
-            [fclj.4clojure_04x :refer :all]
-            [fclj.4clojure_05x :refer :all]))
+            [fclj.4clojure-03x :refer :all]
+            [fclj.4clojure-04x :refer :all]
+            [fclj.4clojure-05x :refer :all]
+            [fclj.4clojure-08x :refer :all]))
 
 (deftest a-test
   (testing "Fixed"
@@ -216,3 +217,12 @@
     (is (= (n56 [:a :a :b :b :c :c]) [:a :b :c]))
     (is (= (n56 '([2 4] [1 2] [1 3] [1 3])) '([2 4] [1 2] [1 3])))
     (is (= (n56 (range 50)) (range 50)))))
+
+(deftest clojure-n83-test
+  (testing "4clj n83"
+    (is (= false (n83 false false)))
+    (is (= true (n83 true false)))
+    (is (= false (n83 true)))
+    (is (= true (n83 false true false)))
+    (is (= false (n83 true true true)))
+    (is (= true (n83 true true true false)))))

@@ -1,4 +1,4 @@
-(ns fclj.4clojure_05x)
+(ns fclj.4clojure-05x)
 
 (defn n50
   "Split by type"

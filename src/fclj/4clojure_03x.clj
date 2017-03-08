@@ -1,4 +1,4 @@
-(ns fclj.4clojure_03x)
+(ns fclj.4clojure-03x)
 
 (defn n30
   "https://www.4clojure.com/problem/30 Compress a seq/n31 will be similar"
