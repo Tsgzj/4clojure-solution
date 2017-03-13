@@ -1,5 +1,5 @@
 # 4clojure-solution
-[![Build Status](https://travis-ci.org/Tsgzj/clojure-playground.svg?branch=master)](https://travis-ci.org/Tsgzj/clojure-playground)
+[![Build Status](https://travis-ci.org/Tsgzj/clojure-playground.svg?branch=master)](https://travis-ci.org/Tsgzj/4clojure-solution.svg?branch=master)
 
 Used to be a Clojure playground
 
