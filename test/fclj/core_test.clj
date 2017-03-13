@@ -6,7 +6,8 @@
             [fclj.4clojure-04x :refer :all]
             [fclj.4clojure-05x :refer :all]
             [fclj.4clojure-08x :refer :all]
-            [fclj.4clojure-06x :refer :all]))
+            [fclj.4clojure-06x :refer :all]
+            [fclj.4clojure-16x :refer :all]))
 
 (deftest a-test
   (testing "Fixed"
@@ -252,3 +253,10 @@
     (is (= true (n83 false true false)))
     (is (= false (n83 true true true)))
     (is (= true (n83 true true true false)))))
+
+(deftest clojure-n166-test
+  (testing "4clj n166"
+    (is (= :gt (n166 < 5 1)))
+    (is (= :eq (n166 (fn [x y] (< (count x) (count y))) "pear" "plum")))
+    (is (= :lt (n166 (fn [x y] (< (mod x 5) (mod y 5))) 21 3)))
+    (is (= :gt (n166 > 0 2)))))
