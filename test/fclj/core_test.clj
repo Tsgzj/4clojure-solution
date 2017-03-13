@@ -232,6 +232,18 @@
     (is (= (n66 5 7) 1))
     (is (= (n66 1023 858) 33))))
 
+(deftest clojure-n81-test
+  (testing "4clj n81"
+    (is (= (n81 #{0 1 2 3} #{2 3 4 5}) #{2 3}))
+    (is (= (n81 #{0 1 2} #{3 4 5}) #{}))
+    (is (= (n81 #{:a :b :c :d} #{:c :e :a :f :d}) #{:a :c :d}))))
+
+(deftest clojure-n81-test-set-theory
+  (testing "4clj n81"
+    (is (= (n81-set-theory #{0 1 2 3} #{2 3 4 5}) #{2 3}))
+    (is (= (n81-set-theory #{0 1 2} #{3 4 5}) #{}))
+    (is (= (n81-set-theory #{:a :b :c :d} #{:c :e :a :f :d}) #{:a :c :d}))))
+
 (deftest clojure-n83-test
   (testing "4clj n83"
     (is (= false (n83 false false)))
