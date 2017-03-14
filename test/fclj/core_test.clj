@@ -1,5 +1,6 @@
 (ns fclj.core-test
   (:require [clojure.test :refer :all]
+            [clojure.string]
             [fclj.core :refer :all]
             [fclj.4clojure :refer :all]
             [fclj.4clojure-03x :refer :all]
@@ -7,6 +8,7 @@
             [fclj.4clojure-05x :refer :all]
             [fclj.4clojure-08x :refer :all]
             [fclj.4clojure-06x :refer :all]
+            [fclj.4clojure-10x :refer :all]
             [fclj.4clojure-16x :refer :all]))
 
 (deftest a-test
@@ -253,6 +255,12 @@
     (is (= true (n83 false true false)))
     (is (= false (n83 true true true)))
     (is (= true (n83 true true true false)))))
+
+(deftest clojure-107-test
+  (testing "4clj n107"
+    (is (= 256 ((n107 2) 16),((n107 8) 2)))
+    (is (= [1 8 27 64] (map (n107 3) [1 2 3 4])))
+    (is (= [1 2 4 8 16] (map #((n107 %) 2) [0 1 2 3 4])))))
 
 (deftest clojure-n166-test
   (testing "4clj n166"
