@@ -8,6 +8,7 @@
             [fclj.4clojure-05x :refer :all]
             [fclj.4clojure-08x :refer :all]
             [fclj.4clojure-06x :refer :all]
+            [fclj.4clojure-09x :refer :all]
             [fclj.4clojure-10x :refer :all]
             [fclj.4clojure-16x :refer :all]))
 
@@ -269,6 +270,17 @@
     (is (= true (n83 false true false)))
     (is (= false (n83 true true true)))
     (is (= true (n83 true true true false)))))
+
+(deftest clojure-n90-test
+  (testing "4clojure n90"
+    (is (= (n90 #{"ace" "king" "queen"} #{"♠" "♥" "♦" "♣"})
+     #{["ace"   "♠"] ["ace"   "♥"] ["ace"   "♦"] ["ace"   "♣"]
+         ["king"  "♠"] ["king"  "♥"] ["king"  "♦"] ["king"  "♣"]
+         ["queen" "♠"] ["queen" "♥"] ["queen" "♦"] ["queen" "♣"]}))
+    (is (= (n90 #{1 2 3} #{4 5})
+       #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]}))
+    (is (= 300 (count (n90 (into #{} (range 10))
+                      (into #{} (range 30))))))))
 
 (deftest clojure-107-test
   (testing "4clj n107"
