@@ -280,7 +280,19 @@
     (is (= (n90 #{1 2 3} #{4 5})
        #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]}))
     (is (= 300 (count (n90 (into #{} (range 10))
-                      (into #{} (range 30))))))))
+                           (into #{} (range 30))))))))
+
+(deftest clojure-n99-test
+  (testing "n99"
+    (is (= (n99 1 1) [1]))
+    (is (= (n99 99 9) [8 9 1]))
+    (is (= (n99 999 99) [9 8 9 0 1]))))
+
+(deftest clojure-n99-lg-test
+  (testing "n99"
+    (is (= (n99-low-golf 1 1) [1]))
+    (is (= (n99-low-golf 99 9) [8 9 1]))
+    (is (= (n99-low-golf 999 99) [9 8 9 0 1]))))
 
 (deftest clojure-107-test
   (testing "4clj n107"
