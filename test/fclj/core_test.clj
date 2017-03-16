@@ -11,9 +11,17 @@
             [fclj.4clojure-10x :refer :all]
             [fclj.4clojure-16x :refer :all]))
 
-(deftest a-test
-  (testing "Fixed"
-    (is (= 1 1))))
+(defmacro test-list
+  [f lst]
+  `(deftest f#
+     (testing
+         (format "Testing %s" (str (quote ~f)))
+       (for [tc# (clojure.edn/read-string
+                  (clojure.string/replace
+                   ~lst
+                   "__"
+                   (str (quote ~f))))]
+         '(is tc#)))))
 
 (deftest factorial-test
   (testing "Factorial with factorial-reduce"
@@ -227,6 +235,12 @@
     (is (= (n61 [:a :b :c] [1 2 3]) {:a 1, :b 2, :c 3}))
     (is (= (n61 [1 2 3 4] ["one" "two" "three"]) {1 "one", 2 "two", 3 "three"}))
     (is (= (n61 [:foo :bar] ["foo" "bar" "baz"]) {:foo "foo", :bar "bar"}))))
+
+(deftest clojure-n62-test
+  (testing "4clj n62"
+    (is (= (take 5 (n62 #(* 2 %) 1)) [1 2 4 8 16]))
+    (is (= (take 100 (n62 inc 0)) (take 100 (range))))
+    (is (= (take 9 (n62 #(inc (mod % 3)) 1)) (take 9 (cycle [1 2 3]))))))
 
 (deftest clojure-n66-test
   (testing "4clj n66"

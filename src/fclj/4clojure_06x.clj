@@ -5,6 +5,12 @@
   [k v]
   (apply hash-map (interleave k v)))
 
+(defn n62
+  "Iterate"
+  [f x]
+  (lazy-seq
+   (cons x (n62 f (f x)))))
+
 (defn n66
   "gcd"
   [a b]
