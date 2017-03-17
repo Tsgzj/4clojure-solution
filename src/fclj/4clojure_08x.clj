@@ -17,3 +17,9 @@
   "Half truth"
   [& args]
   (not (apply = args)))
+
+(defn n88
+  [a b]
+  (set
+   (concat (filter (complement a) b)
+           (filter (complement b) a))))
