@@ -10,6 +10,7 @@
             [fclj.4clojure-06x :refer :all]
             [fclj.4clojure-09x :refer :all]
             [fclj.4clojure-10x :refer :all]
+            [fclj.4clojure-14x :refer :all]
             [fclj.4clojure-16x :refer :all]))
 
 (defmacro test-list
@@ -306,6 +307,13 @@
     (is (= 256 ((n107 2) 16),((n107 8) 2)))
     (is (= [1 8 27 64] (map (n107 3) [1 2 3 4])))
     (is (= [1 2 4 8 16] (map #((n107 %) 2) [0 1 2 3 4])))))
+
+(deftest clojure-143-test
+  (testing "4clj n143"
+    (is (= 0 (n143 [0 1 0] [1 0 0])))
+    (is (= 3 (n143 [1 1 1] [1 1 1])))
+    (is (= 32 (n143 [1 2 3] [4 5 6])))
+    (is (= 256 (n143 [2 5 6] [100 10 1])))))
 
 (deftest clojure-n166-test
   (testing "4clj n166"
