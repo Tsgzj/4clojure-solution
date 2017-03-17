@@ -10,6 +10,7 @@
             [fclj.4clojure-06x :refer :all]
             [fclj.4clojure-09x :refer :all]
             [fclj.4clojure-10x :refer :all]
+            [fclj.4clojure-12x :refer :all]
             [fclj.4clojure-14x :refer :all]
             [fclj.4clojure-16x :refer :all]))
 
@@ -307,6 +308,16 @@
     (is (= 256 ((n107 2) 16),((n107 8) 2)))
     (is (= [1 8 27 64] (map (n107 3) [1 2 3 4])))
     (is (= [1 2 4 8 16] (map #((n107 %) 2) [0 1 2 3 4])))))
+
+(deftest clojure-122-test
+  (testing "n122"
+    (is (= 0     (n122 "0")))
+    (is (= 7     (n122 "111")))
+    (is (= 8     (n122 "1000")))
+    (is (= 9     (n122 "1001")))
+    (is (= 255   (n122 "11111111")))
+    (is (= 1365  (n122 "10101010101")))
+    (is (= 65535 (n122 "1111111111111111")))))
 
 (deftest clojure-143-test
   (testing "4clj n143"
