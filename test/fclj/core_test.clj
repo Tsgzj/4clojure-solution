@@ -13,6 +13,7 @@
             [fclj.4clojure-12x :refer :all]
             [fclj.4clojure-13x :refer :all]
             [fclj.4clojure-14x :refer :all]
+            [fclj.4clojure-15x :refer :all]
             [fclj.4clojure-16x :refer :all]))
 
 (defmacro test-list
@@ -333,6 +334,12 @@
     (is (= 3 (n143 [1 1 1] [1 1 1])))
     (is (= 32 (n143 [1 2 3] [4 5 6])))
     (is (= 256 (n143 [2 5 6] [100 10 1])))))
+
+(deftest clojure-n157-test
+  (testing "n157"
+    (is (= (n157 [:a :b :c]) [[:a 0] [:b 1] [:c 2]]))
+    (is (= (n157 [0 1 3]) '((0 0) (1 1) (3 2))))
+    (is (= (n157 [[:foo] {:bar :baz}]) [[[:foo] 0] [{:bar :baz} 1]]))))
 
 (deftest clojure-n166-test
   (testing "4clj n166"
