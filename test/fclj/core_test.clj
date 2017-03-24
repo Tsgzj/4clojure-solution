@@ -293,6 +293,16 @@
     (is (= 300 (count (n90 (into #{} (range 10))
                            (into #{} (range 30))))))))
 
+(deftest coljure-n95-test
+  (testing "n95"
+    (is (= (n95 '(:a (:b nil nil) nil)) true))
+    (is (= (n95 '(:a (:b nil nil))) false))
+    (is (= (n95 [1 nil [2 [3 nil nil] [4 nil nil]]]) true))
+    (is (= (n95 [1 [2 nil nil] [3 nil nil] [4 nil nil]]) false))
+    (is (= (n95 [1 [2 [3 [4 nil nil] nil] nil] nil]) true))
+    (is (= (n95 [1 [2 [3 [4 false nil] nil] nil] nil]) false))
+    (is (= (n95 '(:a nil ())) false))))
+
 (deftest clojure-n99-test
   (testing "n99"
     (is (= (n99 1 1) [1]))
