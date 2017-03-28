@@ -303,6 +303,30 @@
     (is (= (n95 [1 [2 [3 [4 false nil] nil] nil] nil]) false))
     (is (= (n95 '(:a nil ())) false))))
 
+(deftest coljure-n97-test
+  (testing "n97"
+    (is (= (n97 1) [1]))
+    (is (= (map n97 (range 1 6))
+       [ [1]
+        [1 1]
+        [1 2 1]
+        [1 3 3 1]
+        [1 4 6 4 1]]))
+    (is (= (n97 11)
+       [1 10 45 120 210 252 210 120 45 10 1]))))
+
+(deftest coljure-n97-v2-test
+  (testing "n97"
+    (is (= (n97-v2 1) [1]))
+    (is (= (map n97-v2 (range 1 6))
+           [ [1]
+            [1 1]
+            [1 2 1]
+            [1 3 3 1]
+            [1 4 6 4 1]]))
+    (is (= (n97-v2 11)
+           [1 10 45 120 210 252 210 120 45 10 1]))))
+
 (deftest clojure-n99-test
   (testing "n99"
     (is (= (n99 1 1) [1]))

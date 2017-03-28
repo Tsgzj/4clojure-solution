@@ -17,6 +17,25 @@
            (and (n95 (second root))
                 (n95 (last root))))))
 
+(defn n97
+  "Pascal's Triangle"
+  [n]
+  (for [x (range 1 (inc n))
+        :let [y (/ (apply * (range 1 n))
+                  (* (apply * (range 1 x))
+                     (apply * (range 1 (inc (- n x))))))]]
+    y))
+
+(defn n97-v2
+  [n]
+  (cond
+    (= n 1) [1]
+    (= n 2) [1 1]
+    :else (concat [1]
+                  (map #(+ (first %) (second %))
+                  (partition 2 1 (n97-v2 (dec n))))
+                  [1])))
+
 (defn n99
   "Product Digits"
   [a b]
