@@ -53,6 +53,13 @@
    []
    lst))
 
+(defn n58
+  "Function Composition"
+  [& f]
+  (if (= 1 (count f))
+    (partial (first f))
+    ((partial (first f)) (n58 (rest f)))))
+
 (#(apply hash-map
        ((fn f [e h]
           (if (= 1 (count h))
