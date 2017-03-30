@@ -56,9 +56,10 @@
 (defn n58
   "Function Composition"
   [& f]
-  (if (= 1 (count f))
-    (partial (first f))
-    ((partial (first f)) (n58 (rest f)))))
+  (fn [& args]
+     (reduce #(%2 %)
+             (apply (last f) args)
+             (rest (reverse f)))))
 
 (#(apply hash-map
        ((fn f [e h]
