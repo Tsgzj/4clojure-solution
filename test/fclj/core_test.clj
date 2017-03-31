@@ -236,6 +236,13 @@
     (is (= (n56 '([2 4] [1 2] [1 3] [1 3])) '([2 4] [1 2] [1 3])))
     (is (= (n56 (range 50)) (range 50)))))
 
+(deftest clojure-n58
+  (testing "comp"
+    (is (= [3 2 1] ((n58 rest reverse) [1 2 3 4])))
+    (is (= 5 ((n58 (partial + 3) second) [1 2 3 4])))
+    (is (= true ((n58 zero? #(mod % 8) +) 3 5 7 9)))
+    (is (= "HELLO" ((n58 #(.toUpperCase %) #(apply str %) take) 5 "hello world")))))
+
 (deftest clojure-n61-test
   (testing "4clj n61"
     (is (= (n61 [:a :b :c] [1 2 3]) {:a 1, :b 2, :c 3}))
