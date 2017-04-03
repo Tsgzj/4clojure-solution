@@ -11,6 +11,14 @@
   (lazy-seq
    (cons x (n62 f (f x)))))
 
+(defn n63
+  "Group a sequence"
+  [func coll]
+  (into {}
+        (map #(vector (func (first %))
+                    (vec %))
+             (partition-by func (sort coll)))))
+
 (defn n66
   "gcd"
   [a b]
