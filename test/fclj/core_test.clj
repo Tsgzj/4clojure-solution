@@ -255,6 +255,14 @@
     (is (= (take 100 (n62 inc 0)) (take 100 (range))))
     (is (= (take 9 (n62 #(inc (mod % 3)) 1)) (take 9 (cycle [1 2 3]))))))
 
+(deftest coljure-n63-test
+  (testing "n63"
+    (is (= (n63 #(> % 5) [1 3 6 8]) {false [1 3], true [6 8]}))
+    (is (= (n63 #(apply / %) [[1 2] [2 4] [4 6] [3 6]])
+       {1/2 [[1 2] [2 4] [3 6]], 2/3 [[4 6]]}))
+    (is (= (n63 count [[1] [1 2] [3] [1 2 3] [2 3]])
+       {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]}))))
+
 (deftest clojure-n66-test
   (testing "4clj n66"
     (is (= (n66 2 4) 2))
