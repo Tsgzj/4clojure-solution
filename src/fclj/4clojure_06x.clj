@@ -14,10 +14,9 @@
 (defn n63
   "Group a sequence"
   [func coll]
-  (into {}
-        (map #(vector (func (first %))
-                    (vec %))
-             (partition-by func (sort coll)))))
+  (apply merge-with concat
+         (map #(hash-map (func %) [%])
+              coll)))
 
 (defn n66
   "gcd"
