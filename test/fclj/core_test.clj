@@ -372,6 +372,13 @@
             (drop (dec 1000000))
             (take 2))))))
 
+(deftest clojure-120-test
+  (testing "4clj n120"
+    (is (= 8 (n120 (range 10))))
+    (is (= 19 (n120 (range 30))))
+    (is (= 50 (n120 (range 100))))
+    (is (= 50 (n120 (range 1000))))))
+
 (deftest clojure-122-test
   (testing "n122"
     (is (= 0     (n122 "0")))
