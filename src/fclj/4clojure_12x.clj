@@ -13,3 +13,10 @@
   using java integer"
   [x]
   (Integer/parseInt x 2))
+
+(defn n128
+  [str]
+  (let [s-map {\H :heart, \S :spade, \D :diamond, \C :club}
+        r-map {\2 0, \3 1, \4 2, \5 3, \6 4, \7 5, \8 6, \9 7, \T 8, \J 9, \Q 10, \K 11, \A 12}]
+    {:suit (s-map (first str))
+     :rank (r-map (second str))}))

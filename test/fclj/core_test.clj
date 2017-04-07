@@ -389,6 +389,15 @@
     (is (= 1365  (n122 "10101010101")))
     (is (= 65535 (n122 "1111111111111111")))))
 
+(deftest clojure-128-test
+  (testing "n128"
+    (is (= {:suit :diamond :rank 10} (n128 "DQ")))
+    (is (= {:suit :heart :rank 3} (n128 "H5")))
+    (is (= {:suit :club :rank 12} (n128 "CA")))
+    (is (= (range 13) (map (comp :rank n128 str)
+                       '[S2 S3 S4 S5 S6 S7
+                         S8 S9 ST SJ SQ SK SA])))))
+
 (deftest n135-test
   (testing "n135"
     (is (= 7  (n135 2 + 5)))
