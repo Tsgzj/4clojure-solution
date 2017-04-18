@@ -17,6 +17,11 @@
            (and (n95 (second root))
                 (n95 (last root))))))
 
+(defn n96
+  "Symmentree"
+  [root]
+  ())
+
 (defn n97
   "Pascal's Triangle"
   [n]

@@ -355,6 +355,14 @@
     (is (= (n99-low-golf 99 9) [8 9 1]))
     (is (= (n99-low-golf 999 99) [9 8 9 0 1]))))
 
+(deftest clojure-n100-test
+  (testing "n100"
+    (is (== (n100 2 3) 6))
+    (is (== (n100 5 3 7) 105))
+    (is (== (n100 1/3 2/5) 2))
+    (is (== (n100 3/4 1/6) 3/2))
+    (is (== (n100 7 5/7 2 3/5) 210))))
+
 (deftest clojure-107-test
   (testing "4clj n107"
     (is (= 256 ((n107 2) 16),((n107 8) 2)))
