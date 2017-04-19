@@ -8,4 +8,4 @@
 (defn n147
   "Pascal's Trapezoid"
   [p]
-  (iterate #(vec (map + (cons 0 %) (conj % 0))) p))
+  (iterate #(vec (map +' (cons 0 %) (conj % 0))) p))
