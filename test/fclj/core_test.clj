@@ -319,6 +319,21 @@
     (is (= (n95 [1 [2 [3 [4 false nil] nil] nil] nil]) false))
     (is (= (n95 '(:a nil ())) false))))
 
+(deftest clojure-n96-test
+  (testing "n96"
+    (is (= (n96 '(:a (:b nil nil) (:b nil nil))) true))
+    (is (= (n96 '(:a (:b nil nil) nil)) false))
+    (is (= (n96 '(:a (:b nil nil) (:c nil nil))) false))
+    (is (= (n96 [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]]
+            [2 [3 nil [4 [6 nil nil] [5 nil nil]]] nil]])
+       true))
+    (is (= (n96 [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]]
+            [2 [3 nil [4 [5 nil nil] [6 nil nil]]] nil]])
+       false))
+    (is (= (n96 [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]]
+            [2 [3 nil [4 [6 nil nil] nil]] nil]])
+       false))))
+
 (deftest coljure-n97-test
   (testing "n97"
     (is (= (n97 1) [1]))

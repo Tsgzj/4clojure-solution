@@ -20,7 +20,13 @@
 (defn n96
   "Symmentree"
   [root]
-  ())
+  (letfn [(rev-tree [r]
+            (if (nil? r)
+              r
+              [(first r)
+               (rev-tree (last r))
+               (rev-tree (second r))]))]
+    (= (second root) (rev-tree (last root)))))
 
 (defn n97
   "Pascal's Triangle"
