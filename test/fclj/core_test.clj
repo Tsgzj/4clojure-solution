@@ -8,6 +8,7 @@
             [fclj.4clojure-05x :refer :all]
             [fclj.4clojure-08x :refer :all]
             [fclj.4clojure-06x :refer :all]
+            [fclj.4clojure-07x :refer :all]
             [fclj.4clojure-09x :refer :all]
             [fclj.4clojure-10x :refer :all]
             [fclj.4clojure-11x :refer :all]
