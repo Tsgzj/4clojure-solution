@@ -276,6 +276,15 @@
     (is (= (n66 5 7) 1))
     (is (= (n66 1023 858) 33))))
 
+(deftest clojure-n70-test
+  (testing "4clj n70"
+    (is (= (n70  "Have a nice day.")
+       ["a" "day" "Have" "nice"]))
+    (is (= (n70  "Clojure is a fun language!")
+       ["a" "Clojure" "fun" "is" "language"]))
+    (is (= (n70  "Fools fall for foolish follies.")
+       ["fall" "follies" "foolish" "Fools" "for"]))))
+
 (deftest clojure-n81-test
   (testing "4clj n81"
     (is (= (n81 #{0 1 2 3} #{2 3 4 5}) #{2 3}))
