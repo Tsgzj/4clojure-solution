@@ -243,6 +243,12 @@
     (is (= true ((n58 zero? #(mod % 8) +) 3 5 7 9)))
     (is (= "HELLO" ((n58 #(.toUpperCase %) #(apply str %) take) 5 "hello world")))))
 
+(deftest clojure-n59
+  (testing "n59"
+    (is (= [21 6 1] ((n59 + max min) 2 3 5 1 6 4)))
+    (is (= ["HELLO" 5] ((n59 #(.toUpperCase %) count) "hello")))
+    (is (= [2 6 4] ((n59 :a :c :b) {:a 2, :b 4, :c 6, :d 8 :e 10})))))
+
 (deftest clojure-n61-test
   (testing "4clj n61"
     (is (= (n61 [:a :b :c] [1 2 3]) {:a 1, :b 2, :c 3}))

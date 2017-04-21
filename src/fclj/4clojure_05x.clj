@@ -67,3 +67,8 @@
             [(first h) e]
             (concat [(first h) e] (f e (rest h)))))
         % %2)) 1 '(1 2 3))
+
+(defn n59
+  [& fs]
+  (fn [& args]
+    (map #(apply % args) fs)))
