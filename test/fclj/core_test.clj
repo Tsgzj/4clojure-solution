@@ -277,6 +277,12 @@
     (is (= (n66 5 7) 1))
     (is (= (n66 1023 858) 33))))
 
+(deftest clojure-n67-test
+  (testing "4clj n67"
+    (is (= (n67 2) [2 3]))
+    (is (= (n67 5) [2 3 5 7 11]))
+    (is (= (last (n67 100)) 541))))
+
 (deftest clojure-n70-test
   (testing "4clj n70"
     (is (= (n70  "Have a nice day.")

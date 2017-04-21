@@ -24,3 +24,14 @@
   (if (= 0 b)
     a
     (n66 b (mod a b))))
+
+(defn n67
+  "First x prime numbers"
+  [x]
+  (take x
+        (filter (fn [n]
+                  (if (= n 2)
+                    true
+                    (not-any? #(= 0 (mod n %))
+                              (range 2 (inc (Math/sqrt n))))))
+                (iterate inc 2))))
