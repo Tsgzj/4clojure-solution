@@ -464,6 +464,48 @@
     (is (= (take 2 (n147 [3 1 2])) [[3 1 2] [3 4 3 2]]))
     (is (= (take 100 (n147 [2 4 2])) (rest (take 101 (n147 [2 2])))))))
 
+(deftest clojure-153-test
+  (testing "n153"
+    (is (= (n153 #{#{\U} #{\s} #{\e \R \E} #{\P \L} #{\.}})
+       true))
+    (is (= (n153 #{#{:a :b :c :d :e}
+             #{:a :b :c :d}
+             #{:a :b :c}
+             #{:a :b}
+             #{:a}})
+       false))
+    (is (= (n153 #{#{[1 2 3] [4 5]}
+             #{[1 2] [3 4 5]}
+             #{[1] [2] 3 4 5}
+             #{1 2 [3 4] [5]}})
+       true))
+    (is (= (n153 #{#{'a 'b}
+             #{'c 'd 'e}
+             #{'f 'g 'h 'i}
+             #{''a ''c ''f}})
+       true))
+    (is (= (n153 #{#{'(:x :y :z) '(:x :y) '(:z) '()}
+             #{#{:x :y :z} #{:x :y} #{:z} #{}}
+             #{'[:x :y :z] [:x :y] [:z] [] {}}})
+       false))
+    (is (= (n153 #{#{(= "true") false}
+             #{:yes :no}
+             #{(class 1) 0}
+             #{(symbol "true") 'false}
+             #{(keyword "yes") ::no}
+             #{(class '1) (int \0)}})
+       false))
+    (is (= (n153 #{#{distinct?}
+             #{#(-> %) #(-> %)}
+             #{#(-> %) #(-> %) #(-> %)}
+             #{#(-> %) #(-> %) #(-> %)}})
+       true))
+    (is (= (n153 #{#{(#(-> *)) + (quote mapcat) #_ nil}
+             #{'+ '* mapcat (comment mapcat)}
+             #{(do) set contains? nil?}
+             #{, , , #_, , empty?}})
+       false))))
+
 (deftest clojure-n157-test
   (testing "n157"
     (is (= (n157 [:a :b :c]) [[:a 0] [:b 1] [:c 2]]))
