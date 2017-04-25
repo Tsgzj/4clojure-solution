@@ -1,6 +1,12 @@
 (ns fclj.4clojure-08x
   [:require [clojure.set :refer :all]])
 
+(defn n80
+  "Perfect Numbers"
+  [n]
+  (= n
+     (apply + (filter #(= 0 (mod n %)) (range 1 n)))))
+
 (defn n81-set-theory
   "Set Intersection
   (A∪B∖A)∖B

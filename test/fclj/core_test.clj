@@ -290,7 +290,15 @@
     (is (= (n70  "Clojure is a fun language!")
        ["a" "Clojure" "fun" "is" "language"]))
     (is (= (n70  "Fools fall for foolish follies.")
-       ["fall" "follies" "foolish" "Fools" "for"]))))
+           ["fall" "follies" "foolish" "Fools" "for"]))))
+
+(deftest clojure-n80-test
+  (testing "4clj n80"
+    (is (= (n80 6) true))
+    (is (= (n80 7) false))
+    (is (= (n80 496) true))
+    (is (= (n80 500) false))
+    (is (= (n80 8128) true))))
 
 (deftest clojure-n81-test
   (testing "4clj n81"
