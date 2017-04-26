@@ -24,6 +24,17 @@
   [& args]
   (not (apply = args)))
 
+(defn n85
+  "Power Set"
+  [S]
+  (if (empty? S) #{#{}}
+      (let [T (clojure.set/difference S #{(first S)})]
+        (set (clojure.set/union
+              (n85 T)
+              (map #(clojure.set/union #{(first S)}
+                                       %)
+                   (n85 T)))))))
+
 (defn n88
   [a b]
   (set

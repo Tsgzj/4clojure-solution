@@ -321,6 +321,13 @@
     (is (= false (n83 true true true)))
     (is (= true (n83 true true true false)))))
 
+(deftest clojure-n85-test
+  (testing "n85"
+    (is (= (n85 #{1 :a}) #{#{1 :a} #{:a} #{} #{1}}))
+    (is (= (n85 #{}) #{#{}}))
+    (is (= (n85 #{1 2 3}) #{#{} #{1} #{2} #{3} #{1 2} #{1 3} #{2 3} #{1 2 3}}))
+    (is (= (count (n85 (into #{} (range 10)))) 1024))))
+
 (deftest clojure-n88-test
   (testing "4clj n88"
     (is (= (n88 #{1 2 3 4 5 6} #{1 3 5 7}) #{2 4 6 7}))
