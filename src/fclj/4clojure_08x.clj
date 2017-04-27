@@ -35,6 +35,17 @@
                                        %)
                    (n85 T)))))))
 
+(defn n86
+  "Happy Number"
+  [n]
+  (loop [x n]
+    (cond
+      (= x 1) true
+      (= x 4) false
+      :else (recur (apply +
+                          (map (fn [s] (* s s))
+                               (map #(Character/getNumericValue %) (str x))))))))
+
 (defn n88
   [a b]
   (set
