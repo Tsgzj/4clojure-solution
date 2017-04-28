@@ -428,6 +428,18 @@
     (is (= [1 8 27 64] (map (n107 3) [1 2 3 4])))
     (is (= [1 2 4 8 16] (map #((n107 %) 2) [0 1 2 3 4])))))
 
+(deftest coljure-115-test
+  (testing "4clj n115"
+    (is (= true (n115 11)))
+    (is (= true (n115 121)))
+    (is (= false (n115 123)))
+    (is (= true (n115 0)))
+    (is (= false (n115 88099)))
+    (is (= true (n115 89098)))
+    (is (= true (n115 89089)))
+    (is (= (take 20 (filter n115 (range)))
+     [0 1 2 3 4 5 6 7 8 9 11 22 33 44 55 66 77 88 99 101]) )))
+
 (deftest clojure-118-test
   (testing "4clj n118"
     (is (= [3 4 5 6 7]
