@@ -11,6 +11,15 @@
             (/ (* a b) (gcd a b)))]
     (reduce lcm a args)))
 
+(defn n102
+  "intoCamelCase"
+  [s]
+  (let [l (clojure.string/split s #"-")]
+    (apply str
+           (first l)
+           (map clojure.string/capitalize
+                (rest l)))))
+
 (defn n107
   [a]
   (letfn

@@ -422,6 +422,12 @@
     (is (== (n100 3/4 1/6) 3/2))
     (is (== (n100 7 5/7 2 3/5) 210))))
 
+(deftest clojure-n102-test
+  (testing "n102"
+    (is (= (n102 "something") "something"))
+    (is (= (n102 "multi-word-key") "multiWordKey"))
+    (is (= (n102 "leaveMeAlone") "leaveMeAlone"))))
+
 (deftest clojure-107-test
   (testing "4clj n107"
     (is (= 256 ((n107 2) 16),((n107 8) 2)))
