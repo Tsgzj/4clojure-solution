@@ -8,3 +8,11 @@
                                                          #"[.!]"
                                                          "")
                                  #" ")))
+
+(defn n77
+  "Anagram Finder"
+  [l]
+  (set
+   (map set
+        (filter #(> (count %) 1)
+                (vals (group-by sort l))))))

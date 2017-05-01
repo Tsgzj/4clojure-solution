@@ -292,6 +292,13 @@
     (is (= (n70  "Fools fall for foolish follies.")
            ["fall" "follies" "foolish" "Fools" "for"]))))
 
+(deftest clojure-n77-test
+  (testing "4clj n77"
+    (is (= (n77 ["meat" "mat" "team" "mate" "eat"])
+       #{#{"meat" "team" "mate"}}))
+    (is (= (n77 ["veer" "lake" "item" "kale" "mite" "ever"])
+       #{#{"veer" "ever"} #{"lake" "kale"} #{"mite" "item"}}))))
+
 (deftest clojure-n80-test
   (testing "4clj n80"
     (is (= (n80 6) true))
