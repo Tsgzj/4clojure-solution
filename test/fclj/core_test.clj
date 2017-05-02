@@ -441,6 +441,15 @@
     (is (= [1 8 27 64] (map (n107 3) [1 2 3 4])))
     (is (= [1 2 4 8 16] (map #((n107 %) 2) [0 1 2 3 4])))))
 
+(deftest clojure-108-test
+  (testing "4clj n108"
+    (is (= 3 (n108 [3 4 5])))
+    (is (= 4 (n108 [1 2 3 4 5 6 7] [0.5 3/2 4 19])))
+    (is (= 7 (n108 (range) (range 0 100 7/6) [2 3 5 7 11 13])))
+    (is (= 64 (n108 (map #(* % % %) (range)) ;; perfect cubes
+              (filter #(zero? (bit-and % (dec %))) (range)) ;; powers of 2
+              (iterate inc 20)))))) ;; at least as large as 20))
+
 (deftest coljure-115-test
   (testing "4clj n115"
     (is (= true (n115 11)))

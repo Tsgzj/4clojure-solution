@@ -26,3 +26,11 @@
       [(power [n x]
          (apply * (repeat n x)))]
     (partial power a)))
+
+(defn n108
+  "Lazy Searching"
+  [& args]
+  (let [ls (sort-by first args)]
+    (if (apply = (map first ls))
+      (first (first ls))
+      (apply n108 (conj (rest ls) (rest (first ls)))))))
