@@ -506,6 +506,22 @@
     (is (= 8  (n135 10 / 2 - 1 * 2)))
     (is (= 72 (n135 20 / 2 + 2 + 4 + 8 - 6 - 10 * 9)))))
 
+(deftest n137-test
+  (testing "n137"
+    (is (= [1 2 3 4 5 0 1] (n137 1234501 10)))
+    (is (= [0] (n137 0 11)))
+    (is (= [1 0 0 1] (n137 9 2)))
+    (is (= [1 0] (let [n (rand-int 100000)](n137 n n))))
+    (is (= [16 18 5 24 15 1] (n137 Integer/MAX_VALUE 42)))))
+
+(deftest n137-recur-test
+  (testing "n137-recur"
+    (is (= [1 2 3 4 5 0 1] (n137-recur 1234501 10)))
+    (is (= [0] (n137-recur 0 11)))
+    (is (= [1 0 0 1] (n137-recur 9 2)))
+    (is (= [1 0] (let [n (rand-int 100000)](n137-recur n n))))
+    (is (= [16 18 5 24 15 1] (n137-recur Integer/MAX_VALUE 42)))))
+
 (deftest clojure-143-test
   (testing "4clj n143"
     (is (= 0 (n143 [0 1 0] [1 0 0])))
