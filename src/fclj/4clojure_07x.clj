@@ -16,3 +16,8 @@
    (map set
         (filter #(> (count %) 1)
                 (vals (group-by sort l))))))
+
+(defn n78
+  "Reimplement Trampoline"
+  [f & args]
+  )

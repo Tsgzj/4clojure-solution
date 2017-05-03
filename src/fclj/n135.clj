@@ -1,5 +1,5 @@
 (ns fclj.n135
-  (:requeri [clojure.test :refer :all]))
+  (:require [clojure.test :refer :all]))
 
 (defn __
   [val & args]
@@ -16,3 +16,10 @@
     (is (= 42 (__ 38 + 48 - 2 / 2)))
     (is (= 8  (__ 10 / 2 - 1 * 2)))
     (is (= 72 (__ 20 / 2 + 2 + 4 + 8 - 6 - 10 * 9)))))
+
+(defn n137
+  "Digits and bases"
+  [n b]
+  (if (< n b)
+    [(rem n b)]
+    (cons (rem n b) (n137 (/ n b) b))))
