@@ -10,3 +10,9 @@
   "Indexing Sequences"
   [lst]
   (partition 2 (interleave lst (range))))
+
+(defn n158
+  "Decurry"
+  [f]
+  (fn [& args]
+    (reduce #(% %2) f args)))

@@ -584,6 +584,25 @@
     (is (= (n157 [0 1 3]) '((0 0) (1 1) (3 2))))
     (is (= (n157 [[:foo] {:bar :baz}]) [[[:foo] 0] [{:bar :baz} 1]]))))
 
+(deftest clojure-n158
+  (testing "n158"
+    (is (= 10 ((n158 (fn [a]
+                 (fn [b]
+                   (fn [c]
+                     (fn [d]
+                       (+ a b c d))))))
+           1 2 3 4)))
+    (is (= 24 ((n158 (fn [a]
+                 (fn [b]
+                   (fn [c]
+                     (fn [d]
+                       (* a b c d))))))
+           1 2 3 4)))
+    (is (= 25 ((n158 (fn [a]
+                 (fn [b]
+                   (* a b))))
+           5 5)))))
+
 (deftest clojure-n166-test
   (testing "4clj n166"
     (is (= :gt (n166 < 5 1)))
