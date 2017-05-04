@@ -1,5 +1,19 @@
 (ns fclj.4clojure-11x)
 
+(defn n114
+  "Global take-while"
+  [n p s]
+  (loop [n n s s r []]
+    (if (= 0 n)
+      (butlast r)
+      (if (p (first s))
+        (recur (dec n)
+               (rest s)
+               (conj r (first s)))
+        (recur n
+               (rest s)
+               (conj r (first s)))))))
+
 (defn n115
   "The balance of N"
   [n]
