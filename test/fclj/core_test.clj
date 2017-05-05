@@ -450,6 +450,18 @@
               (filter #(zero? (bit-and % (dec %))) (range)) ;; powers of 2
               (iterate inc 20)))))) ;; at least as large as 20))
 
+(deftest clojure-n114
+  (testing "n114"
+    (is (= [2 3 5 7 11 13]
+       (n114 4 #(= 2 (mod % 3))
+           [2 3 5 7 11 13 17 19 23])))
+    (is (= ["this" "is" "a" "sentence"]
+       (n114 3 #(some #{\i} %)
+           ["this" "is" "a" "sentence" "i" "wrote"])))
+    (is (= ["this" "is"]
+       (n114 1 #{"a"}
+           ["this" "is" "a" "sentence" "i" "wrote"])))))
+
 (deftest coljure-115-test
   (testing "4clj n115"
     (is (= true (n115 11)))
