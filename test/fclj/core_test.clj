@@ -292,6 +292,13 @@
     (is (= (n70  "Fools fall for foolish follies.")
            ["fall" "follies" "foolish" "Fools" "for"]))))
 
+(deftest clojure-n75
+  (testing "4clj n75"
+    (is (= (n75 1) 1))
+    (is (= (n75 10) (count '(1 3 7 9)) 4))
+    (is (= (n75 40) 16))
+    (is (= (n75 99) 60))))
+
 (deftest clojure-n77-test
   (testing "4clj n77"
     (is (= (n77 ["meat" "mat" "team" "mate" "eat"])

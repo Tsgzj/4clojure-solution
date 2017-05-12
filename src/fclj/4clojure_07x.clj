@@ -9,6 +9,19 @@
                                                          "")
                                  #" ")))
 
+(defn n75
+  [n]
+  (if (= n 1)
+    1
+    (letfn
+        [(gcd [a b]
+           (if (= 0 b)
+             a
+             (gcd b (mod a b))))]
+      (count
+       (filter #(= 1 (gcd n %))
+               (range 1 n))))))
+
 (defn n77
   "Anagram Finder"
   [l]
