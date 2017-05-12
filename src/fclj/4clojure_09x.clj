@@ -8,6 +8,11 @@
          y b]
      [x y])))
 
+(defn n93
+  "Partially flatten"
+  [l]
+  )
+
 (defn n95
   "To tree or not to tree"
   [root]
