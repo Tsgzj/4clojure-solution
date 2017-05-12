@@ -11,7 +11,9 @@
 (defn n93
   "Partially flatten"
   [l]
-  )
+  (if (some (complement coll?) l)
+    [l]
+    (mapcat n93 l)))
 
 (defn n95
   "To tree or not to tree"

@@ -360,6 +360,15 @@
     (is (= 300 (count (n90 (into #{} (range 10))
                            (into #{} (range 30))))))))
 
+(deftest clojure-n93-test
+  (testing "4clojure n93"
+    (is (= (n93 [["Do"] ["Nothing"]])
+           [["Do"] ["Nothing"]]))
+    (is (= (n93 [[[[:a :b]]] [[:c :d]] [:e :f]])
+           [[:a :b] [:c :d] [:e :f]]))
+    (is (= (n93 '((1 2)((3 4)((((5 6)))))))
+           '((1 2)(3 4)(5 6))))))
+
 (deftest coljure-n95-test
   (testing "n95"
     (is (= (n95 '(:a (:b nil nil) nil)) true))
