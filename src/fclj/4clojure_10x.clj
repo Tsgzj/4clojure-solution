@@ -20,6 +20,20 @@
            (map clojure.string/capitalize
                 (rest l)))))
 
+(defn n105
+  "keys and values"
+  [l]
+  (if (= 0 (count l))
+    {}
+    (let [p (partition-by keyword? l)
+          d (partition 2 p)]
+      (apply merge
+             (flatten
+              (map (fn
+                     [x]
+                     (map #(hash-map % (second x)) (first x)))
+                   d))))))
+
 (defn n107
   [a]
   (letfn
