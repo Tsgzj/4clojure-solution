@@ -20,7 +20,7 @@
            (map clojure.string/capitalize
                 (rest l)))))
 
-(defn n105
+(defn n105-wrong
   "keys and values"
   [l]
   (if (= 0 (count l))
@@ -33,6 +33,15 @@
                      [x]
                      (map #(hash-map % (second x)) (first x)))
                    d))))))
+
+(defn n105
+  "keys and values"
+  [l]
+  (if (= 0 (count l))
+    {}
+    (let [p (partition-by keywords? l)
+          d (partition 2 p)]
+      )))
 
 (defn n107
   [a]
