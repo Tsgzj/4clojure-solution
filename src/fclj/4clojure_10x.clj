@@ -39,9 +39,19 @@
   [l]
   (if (= 0 (count l))
     {}
-    (let [p (partition-by keywords? l)
+    (let [p (partition-by keyword? l)
           d (partition 2 p)]
-      )))
+      (apply merge
+             (flatten
+              (map (fn
+                     [x]
+                     (let [k (reverse (first x))
+                           v (second x)]
+                       (if (= (count k) 1)
+                         (hash-map (first k) v)
+                         (zipmap k (concat (list v)
+                                           (repeat (- (count k) 1) '()))))))
+                   d))))))
 
 (defn n107
   [a]
