@@ -53,6 +53,15 @@
                                            (repeat (- (count k) 1) '()))))))
                    d))))))
 
+(defn n105-better
+  "keys and values"
+  [l]
+  (apply hash-map
+         (map #(if (keyword? (first %))
+                 (first %)
+                 (remove nil? %))
+              (partition-by keyword? (interpose nil l)))))
+
 (defn n107
   [a]
   (letfn
