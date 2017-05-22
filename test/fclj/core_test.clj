@@ -460,10 +460,10 @@
 
 (deftest clojure-n105-test
   (testing "n105"
-    (is (= {} (n105_better [])))
-    (is (= {:a [1]} (n105_better [:a 1])))
-    (is (= {:a [1], :b [2]} (n105_better [:a 1, :b 2])))
-    (is (= {:a [1 2 3], :b [], :c [4]} (n105_better [:a 1 2 3 :b :c 4])))))
+    (is (= {} (n105-better [])))
+    (is (= {:a [1]} (n105-better [:a 1])))
+    (is (= {:a [1], :b [2]} (n105-better [:a 1, :b 2])))
+    (is (= {:a [1 2 3], :b [], :c [4]} (n105-better [:a 1 2 3 :b :c 4])))))
 
 (deftest clojure-107-test
   (testing "4clj n107"
