@@ -502,7 +502,13 @@
     (is (= true (n115 89098)))
     (is (= true (n115 89089)))
     (is (= (take 20 (filter n115 (range)))
-     [0 1 2 3 4 5 6 7 8 9 11 22 33 44 55 66 77 88 99 101]) )))
+           [0 1 2 3 4 5 6 7 8 9 11 22 33 44 55 66 77 88 99 101]) )))
+
+(deftest clojuren-116-test
+  (testing "n116"
+    (is (= false (n116 4)))
+    (is (= true (n116 563)))
+    (is (= 1103 (nth (filter n116 (range)) 15)))))
 
 (deftest clojure-118-test
   (testing "4clj n118"

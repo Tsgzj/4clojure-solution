@@ -26,6 +26,21 @@
     (= (apply + (map int l))
        (apply + (map int r)))))
 
+(defn n116
+  "Prime Sandwich"
+  [n]
+  (letfn [(prime? [x]
+            (if (= x 1)
+              false
+              (not-any? #(= 0 (mod x %))
+                        (range 2 x))))]
+    (if ((complement prime?) n)
+      false
+      (= n
+         (/ (+ (first (filter prime? (iterate inc (+ n 1))))
+               (first (filter prime? (iterate dec (- n 1)))))
+            2)))))
+
 (defn n118-not-working
   "Re-implement Map"
   [f s]
