@@ -20,6 +20,11 @@
            (map clojure.string/capitalize
                 (rest l)))))
 
+(defn n103
+  "k-combination"
+  [n c]
+  ())
+
 (defn n105-wrong
   "keys and values"
   [l]
