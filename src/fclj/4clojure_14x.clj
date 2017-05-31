@@ -5,6 +5,11 @@
   [a b]
   (apply + (map * a b)))
 
+(defn n144
+  "Oscilrate"
+  [n & f]
+  )
+
 (defn n147
   "Pascal's Trapezoid"
   [p]
