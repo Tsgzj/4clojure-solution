@@ -480,6 +480,13 @@
               (filter #(zero? (bit-and % (dec %))) (range)) ;; powers of 2
               (iterate inc 20)))))) ;; at least as large as 20))
 
+(deftest clojure-n110-test
+  (testing "4clj n110"
+    (is (= [[1 1] [2 1] [1 2 1 1]] (take 3 (n110 [1]))))
+    (is (= [3 1 2 4] (first (n110 [1 1 1 4 4]))))
+    (is (= [1 1 1 3 2 1 3 2 1 1] (nth (n110 [1]) 6)))
+    (is (= 338 (count (nth (n110 [3 2]) 15))))))
+
 (deftest clojure-n114
   (testing "n114"
     (is (= [2 3 5 7 11 13]

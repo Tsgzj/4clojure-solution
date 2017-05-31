@@ -1,5 +1,16 @@
 (ns fclj.4clojure-11x)
 
+(defn n110
+  "Sequence of pronunciations"
+  [s]
+  (letfn [(pro [seq]
+            (mapcat
+             (fn
+               [l]
+               [(count l) (first l)])
+             (partition-by identity seq)))]
+    (rest (iterate pro s))))
+
 (defn n114
   "Global take-while"
   [n p s]
