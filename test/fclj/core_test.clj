@@ -584,6 +584,18 @@
     (is (= 32 (n143 [1 2 3] [4 5 6])))
     (is (= 256 (n143 [2 5 6] [100 10 1])))))
 
+(deftest clojure-144-ele-test
+  (testing "4clj n144-ele"
+    (is (= (take 3 (n144-ele 3.14 int double)) [3.14 3 3.0]))
+    (is (= (take 5 (n144-ele 3 #(- % 3) #(+ 5 %))) [3 0 5 2 7]))
+    (is (= (take 12 (n144-ele 0 inc dec inc dec inc)) [0 1 0 1 0 1 2 1 2 1 2 3]))))
+
+(deftest clojure-144-test
+  (testing "4clj n144"
+    (is (= (take 3 (n144 3.14 int double)) [3.14 3 3.0]))
+    (is (= (take 5 (n144 3 #(- % 3) #(+ 5 %))) [3 0 5 2 7]))
+    (is (= (take 12 (n144 0 inc dec inc dec inc)) [0 1 0 1 0 1 2 1 2 1 2 3]))))
+
 (deftest clojure-147-test
   (testing "4clj n147"
     (is (= (second (n147 [2 3 2])) [2 5 5 2]))

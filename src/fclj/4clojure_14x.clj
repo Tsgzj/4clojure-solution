@@ -8,7 +8,14 @@
 (defn n144
   "Oscilrate"
   [n & f]
-  )
+  (cons n
+        (lazy-seq (apply n144
+                         (cons ((first f) n)
+                               (concat (rest f) (take 1 f)))))))
+;; A pretty elegant solution
+(defn n144-ele
+  [n & f]
+  (reductions #(%2 %1) n (cycle f)))
 
 (defn n147
   "Pascal's Trapezoid"
