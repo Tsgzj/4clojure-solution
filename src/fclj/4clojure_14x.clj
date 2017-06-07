@@ -1,5 +1,9 @@
 (ns fclj.4clojure-14x)
 
+(defn n141
+  "tricky card games"
+  )
+
 (defn n143
   "dot product"
   [a b]
