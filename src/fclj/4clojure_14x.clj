@@ -1,8 +1,14 @@
 (ns fclj.4clojure-14x)
 
 (defn n141
-  "tricky card games"
-  )
+  "Tricky card games"
+  [t]
+  (fn [l]
+    (let [led (if t
+                t
+                (:suit (first l)))]
+      (last (sort-by :rank
+                     (filter #(= led (:suit %)) l))))))
 
 (defn n143
   "dot product"

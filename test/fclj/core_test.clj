@@ -577,6 +577,19 @@
     (is (= [1 0] (let [n (rand-int 100000)](n137-recur n n))))
     (is (= [16 18 5 24 15 1] (n137-recur Integer/MAX_VALUE 42)))))
 
+(deftest n141-test
+  (testing "n141"
+    (let [notrump (n141 nil)]
+             (and (is (= {:suit :club :rank 9}  (notrump [{:suit :club :rank 9}
+                                                      {:suit :club :rank 9}])))
+                  (is (= {:suit :spade :rank 2} (notrump [{:suit :spade :rank 2}
+                                                      {:suit :club :rank 10}])))))
+    (is (= {:suit :club :rank 10} ((n141 :club) [{:suit :spade :rank 2}
+                                                 {:suit :club :rank 10}])))
+    (is (= {:suit :heart :rank 8}
+           ((n141 :heart) [{:suit :heart :rank 6} {:suit :heart :rank 8}
+                           {:suit :diamond :rank 10} {:suit :heart :rank 4}])))))
+
 (deftest clojure-143-test
   (testing "4clj n143"
     (is (= 0 (n143 [0 1 0] [1 0 0])))
