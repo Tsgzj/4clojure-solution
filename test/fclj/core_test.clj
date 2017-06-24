@@ -292,6 +292,11 @@
     (is (= (n70  "Fools fall for foolish follies.")
            ["fall" "follies" "foolish" "Fools" "for"]))))
 
+(deftest clojure-n74-test
+  (testing "4clj n74"
+    (is (= (n74 "4,5,6,7,8,9") "4,9"))
+    (is (= (n74 "15,16,25,36,37") "16,25,36"))))
+
 (deftest clojure-n75
   (testing "4clj n75"
     (is (= (n75 1) 1))

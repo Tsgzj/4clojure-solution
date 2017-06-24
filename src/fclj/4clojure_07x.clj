@@ -1,4 +1,5 @@
-(ns fclj.4clojure-07x)
+(ns fclj.4clojure-07x
+  (:require [clojure.string :as str]))
 
 (defn n70
   "Word sorting"
@@ -8,6 +9,18 @@
                                                          #"[.!]"
                                                          "")
                                  #" ")))
+
+(defn n74
+  [s]
+  (let [l (map #(Integer/valueOf %) (clojure.string/split s #","))]
+    (clojure.string/join
+     ","
+     (filter
+      (fn [n]
+        (== n
+            (#(* % %)
+             (Math/sqrt n))))
+      l))))
 
 (defn n75
   [n]
