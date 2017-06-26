@@ -1,5 +1,11 @@
 (ns fclj.4clojure-13x)
 
+(defn n131
+  [& x]
+  (if (== 1 (count x))
+    true
+    false))
+
 (defn n135
   [val & args]
   (reduce
