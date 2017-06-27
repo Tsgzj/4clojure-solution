@@ -4,7 +4,12 @@
   [& x]
   (if (== 1 (count x))
     true
-    false))
+    (letfn [(ps [s]
+              (reduce (fn [sets el]
+                        (into sets
+                              (map #(conj % el) sets)))
+                      #{#{}} s))]
+            (map ps x))))
 
 (defn n135
   [val & args]
