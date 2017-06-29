@@ -5,11 +5,18 @@
   (if (== 1 (count x))
     true
     (letfn [(ps [s]
-              (reduce (fn [sets el]
-                        (into sets
-                              (map #(conj % el) sets)))
-                      #{#{}} s))]
-            (map ps x))))
+              (remove empty?
+                      (reduce (fn [sets el]
+                                (into sets
+                                      (map #(conj % el) sets)))
+                              #{#{}} s)))]
+      (not
+       (empty?
+        (apply clojure.set/intersection
+               (map
+                (fn [a]
+                  (set (map #(reduce + %) (ps a))))
+                x)))))))
 
 (defn n135
   [val & args]
