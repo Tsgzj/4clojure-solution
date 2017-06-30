@@ -11,6 +11,14 @@
              (partition-by identity seq)))]
     (rest (iterate pro s))))
 
+(defn n112
+  "Seques Horribilis"
+  [n s]
+  (letfn [(sum [l]
+            (reduce + (flatten l)))
+          ()]
+    (sum s)))
+
 (defn n114
   "Global take-while"
   [n p s]
