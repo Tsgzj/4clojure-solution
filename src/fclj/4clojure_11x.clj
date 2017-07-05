@@ -13,17 +13,7 @@
 
 (defn n112
   "Seques Horribilis"
-  [n s]
-  (letfn [(sum [l]
-            (reduce + (flatten l)))
-          (droplast
-            [l]
-            (if (not (sequential? (last l)))
-              (drop-last l)
-              (concat (butlast l) [(droplast (last l))])))]
-    (if (>= n (sum s))
-      s
-      (n112 n (droplast s)))))
+  [n s])
 
 (defn n114
   "Global take-while"
@@ -69,10 +59,10 @@
 (defn n118-not-working
   "Re-implement Map"
   [f s]
-   (reduce (fn [lst e]
-             (cons (f e) lst))
-           []
-           (reverse s)))
+  (reduce (fn [lst e]
+            (cons (f e) lst))
+          []
+          (reverse s)))
 
 (defn n118
   "Re-umplement Map"

@@ -57,16 +57,16 @@
   "Function Composition"
   [& f]
   (fn [& args]
-     (reduce #(%2 %)
-             (apply (last f) args)
-             (rest (reverse f)))))
+    (reduce #(%2 %)
+            (apply (last f) args)
+            (rest (reverse f)))))
 
 (#(apply hash-map
-       ((fn f [e h]
-          (if (= 1 (count h))
-            [(first h) e]
-            (concat [(first h) e] (f e (rest h)))))
-        % %2)) 1 '(1 2 3))
+         ((fn f [e h]
+            (if (= 1 (count h))
+              [(first h) e]
+              (concat [(first h) e] (f e (rest h)))))
+          % %2)) 1 '(1 2 3))
 
 (defn n59
   [& fs]

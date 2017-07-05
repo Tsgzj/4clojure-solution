@@ -37,7 +37,7 @@
   (letfn [(sum [a n]
             (/ (* n (+ a (* n a))) 2))
           (tit [x y]
-            (sum x (bigint (quot (dec y) x))))]
+               (sum x (bigint (quot (dec y) x))))]
     (- (+ (tit k j)
           (tit l j))
        (tit (* k l) j))))

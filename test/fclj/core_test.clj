@@ -22,7 +22,7 @@
   [f lst]
   `(deftest f#
      (testing
-         (format "Testing %s" (str (quote ~f)))
+      (format "Testing %s" (str (quote ~f)))
        (for [tc# (clojure.edn/read-string
                   (clojure.string/replace
                    ~lst
@@ -32,7 +32,7 @@
 
 (deftest factorial-test
   (testing "Factorial with factorial-reduce"
-    (is (= (factorial 20) )2432902008176640000)))
+    (is (= (factorial 20)) 2432902008176640000)))
 
 (deftest bfs-test
   (testing "Simple test for BFS"
@@ -70,7 +70,7 @@
   (testing "4clojure n23"
     (is (= (n23 [1 2 3 4 5]) [5 4 3 2 1]))
     (is (= (n23 (sorted-set 5 7 2 7)) '(7 5 2)))
-    (is (= (n23 [[1 2][3 4][5 6]]) [[5 6][3 4][1 2]]))))
+    (is (= (n23 [[1 2] [3 4] [5 6]]) [[5 6] [3 4] [1 2]]))))
 
 (deftest clojure-n24-test
   (testing "4clojure n24"
@@ -266,9 +266,9 @@
   (testing "n63"
     (is (= (n63 #(> % 5) [1 3 6 8]) {false [1 3], true [6 8]}))
     (is (= (n63 #(apply / %) [[1 2] [2 4] [4 6] [3 6]])
-       {1/2 [[1 2] [2 4] [3 6]], 2/3 [[4 6]]}))
+           {1/2 [[1 2] [2 4] [3 6]], 2/3 [[4 6]]}))
     (is (= (n63 count [[1] [1 2] [3] [1 2 3] [2 3]])
-       {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]}))))
+           {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]}))))
 
 (deftest clojure-n66-test
   (testing "4clj n66"
@@ -286,9 +286,9 @@
 (deftest clojure-n70-test
   (testing "4clj n70"
     (is (= (n70  "Have a nice day.")
-       ["a" "day" "Have" "nice"]))
+           ["a" "day" "Have" "nice"]))
     (is (= (n70  "Clojure is a fun language!")
-       ["a" "Clojure" "fun" "is" "language"]))
+           ["a" "Clojure" "fun" "is" "language"]))
     (is (= (n70  "Fools fall for foolish follies.")
            ["fall" "follies" "foolish" "Fools" "for"]))))
 
@@ -307,9 +307,9 @@
 (deftest clojure-n77-test
   (testing "4clj n77"
     (is (= (n77 ["meat" "mat" "team" "mate" "eat"])
-       #{#{"meat" "team" "mate"}}))
+           #{#{"meat" "team" "mate"}}))
     (is (= (n77 ["veer" "lake" "item" "kale" "mite" "ever"])
-       #{#{"veer" "ever"} #{"lake" "kale"} #{"mite" "item"}}))))
+           #{#{"veer" "ever"} #{"lake" "kale"} #{"mite" "item"}}))))
 
 (deftest clojure-n80-test
   (testing "4clj n80"
@@ -364,11 +364,11 @@
 (deftest clojure-n90-test
   (testing "4clojure n90"
     (is (= (n90 #{"ace" "king" "queen"} #{"♠" "♥" "♦" "♣"})
-     #{["ace"   "♠"] ["ace"   "♥"] ["ace"   "♦"] ["ace"   "♣"]
-         ["king"  "♠"] ["king"  "♥"] ["king"  "♦"] ["king"  "♣"]
-         ["queen" "♠"] ["queen" "♥"] ["queen" "♦"] ["queen" "♣"]}))
+           #{["ace"   "♠"] ["ace"   "♥"] ["ace"   "♦"] ["ace"   "♣"]
+             ["king"  "♠"] ["king"  "♥"] ["king"  "♦"] ["king"  "♣"]
+             ["queen" "♠"] ["queen" "♥"] ["queen" "♦"] ["queen" "♣"]}))
     (is (= (n90 #{1 2 3} #{4 5})
-       #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]}))
+           #{[1 4] [2 4] [3 4] [1 5] [2 5] [3 5]}))
     (is (= 300 (count (n90 (into #{} (range 10))
                            (into #{} (range 30))))))))
 
@@ -378,8 +378,8 @@
            [["Do"] ["Nothing"]]))
     (is (= (n93 [[[[:a :b]]] [[:c :d]] [:e :f]])
            [[:a :b] [:c :d] [:e :f]]))
-    (is (= (n93 '((1 2)((3 4)((((5 6)))))))
-           '((1 2)(3 4)(5 6))))))
+    (is (= (n93 '((1 2) ((3 4) ((((5 6)))))))
+           '((1 2) (3 4) (5 6))))))
 
 (deftest coljure-n95-test
   (testing "n95"
@@ -397,32 +397,32 @@
     (is (= (n96 '(:a (:b nil nil) nil)) false))
     (is (= (n96 '(:a (:b nil nil) (:c nil nil))) false))
     (is (= (n96 [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]]
-            [2 [3 nil [4 [6 nil nil] [5 nil nil]]] nil]])
-       true))
+                 [2 [3 nil [4 [6 nil nil] [5 nil nil]]] nil]])
+           true))
     (is (= (n96 [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]]
-            [2 [3 nil [4 [5 nil nil] [6 nil nil]]] nil]])
-       false))
+                 [2 [3 nil [4 [5 nil nil] [6 nil nil]]] nil]])
+           false))
     (is (= (n96 [1 [2 nil [3 [4 [5 nil nil] [6 nil nil]] nil]]
-            [2 [3 nil [4 [6 nil nil] nil]] nil]])
-       false))))
+                 [2 [3 nil [4 [6 nil nil] nil]] nil]])
+           false))))
 
 (deftest coljure-n97-test
   (testing "n97"
     (is (= (n97 1) [1]))
     (is (= (map n97 (range 1 6))
-       [ [1]
-        [1 1]
-        [1 2 1]
-        [1 3 3 1]
-        [1 4 6 4 1]]))
+           [[1]
+            [1 1]
+            [1 2 1]
+            [1 3 3 1]
+            [1 4 6 4 1]]))
     (is (= (n97 11)
-       [1 10 45 120 210 252 210 120 45 10 1]))))
+           [1 10 45 120 210 252 210 120 45 10 1]))))
 
 (deftest coljure-n97-v2-test
   (testing "n97"
     (is (= (n97-v2 1) [1]))
     (is (= (map n97-v2 (range 1 6))
-           [ [1]
+           [[1]
             [1 1]
             [1 2 1]
             [1 3 3 1]
@@ -482,8 +482,8 @@
     (is (= 4 (n108 [1 2 3 4 5 6 7] [0.5 3/2 4 19])))
     (is (= 7 (n108 (range) (range 0 100 7/6) [2 3 5 7 11 13])))
     (is (= 64 (n108 (map #(* % % %) (range)) ;; perfect cubes
-              (filter #(zero? (bit-and % (dec %))) (range)) ;; powers of 2
-              (iterate inc 20)))))) ;; at least as large as 20))
+                    (filter #(zero? (bit-and % (dec %))) (range)) ;; powers of 2
+                    (iterate inc 20)))))) ;; at least as large as 20))
 
 (deftest clojure-n110-test
   (testing "4clj n110"
@@ -495,14 +495,14 @@
 (deftest clojure-n114
   (testing "n114"
     (is (= [2 3 5 7 11 13]
-       (n114 4 #(= 2 (mod % 3))
-           [2 3 5 7 11 13 17 19 23])))
+           (n114 4 #(= 2 (mod % 3))
+                 [2 3 5 7 11 13 17 19 23])))
     (is (= ["this" "is" "a" "sentence"]
-       (n114 3 #(some #{\i} %)
-           ["this" "is" "a" "sentence" "i" "wrote"])))
+           (n114 3 #(some #{\i} %)
+                 ["this" "is" "a" "sentence" "i" "wrote"])))
     (is (= ["this" "is"]
-       (n114 1 #{"a"}
-           ["this" "is" "a" "sentence" "i" "wrote"])))))
+           (n114 1 #{"a"}
+                 ["this" "is" "a" "sentence" "i" "wrote"])))))
 
 (deftest coljure-115-test
   (testing "4clj n115"
@@ -514,7 +514,7 @@
     (is (= true (n115 89098)))
     (is (= true (n115 89089)))
     (is (= (take 20 (filter n115 (range)))
-           [0 1 2 3 4 5 6 7 8 9 11 22 33 44 55 66 77 88 99 101]) )))
+           [0 1 2 3 4 5 6 7 8 9 11 22 33 44 55 66 77 88 99 101]))))
 
 (deftest clojuren-116-test
   (testing "n116"
@@ -525,13 +525,13 @@
 (deftest clojure-118-test
   (testing "4clj n118"
     (is (= [3 4 5 6 7]
-       (n118 inc [2 3 4 5 6])))
+           (n118 inc [2 3 4 5 6])))
     (is (= (repeat 10 nil)
-       (n118 (fn [_] nil) (range 10))))
+           (n118 (fn [_] nil) (range 10))))
     (is (= [1000000 1000001]
-       (->> (n118 inc (range))
-            (drop (dec 1000000))
-            (take 2))))))
+           (->> (n118 inc (range))
+                (drop (dec 1000000))
+                (take 2))))))
 
 (deftest clojure-120-test
   (testing "4clj n120"
@@ -556,35 +556,35 @@
     (is (= {:suit :heart :rank 3} (n128 "H5")))
     (is (= {:suit :club :rank 12} (n128 "CA")))
     (is (= (range 13) (map (comp :rank n128 str)
-                       '[S2 S3 S4 S5 S6 S7
-                         S8 S9 ST SJ SQ SK SA])))))
+                           '[S2 S3 S4 S5 S6 S7
+                             S8 S9 ST SJ SQ SK SA])))))
 
 (deftest clojure-131-test
   (testing "n131"
     (is (= true  (n131 #{-1 1 99}
-                 #{-2 2 888}
-                 #{-3 3 7777}))) ; ex. all sets have a subset which sums to zero
+                       #{-2 2 888}
+                       #{-3 3 7777}))) ; ex. all sets have a subset which sums to zero
     (is (= false (n131 #{1}
-                 #{2}
-                 #{3}
-                 #{4})))
+                       #{2}
+                       #{3}
+                       #{4})))
     (is (= true  (n131 #{1})))
     (is (= false (n131 #{1 -3 51 9}
-                 #{0}
-                 #{9 2 81 33})))
+                       #{0}
+                       #{9 2 81 33})))
     (is (= true  (n131 #{1 3 5}
-                 #{9 11 4}
-                 #{-3 12 3}
-                 #{-3 4 -2 10})))
+                       #{9 11 4}
+                       #{-3 12 3}
+                       #{-3 4 -2 10})))
     (is (= false (n131 #{-1 -2 -3 -4 -5 -6}
-                 #{1 2 3 4 5 6 7 8 9})))
+                       #{1 2 3 4 5 6 7 8 9})))
     (is (= true  (n131 #{1 3 5 7}
-                 #{2 4 6 8})))
+                       #{2 4 6 8})))
     (is (= true  (n131 #{-1 3 -5 7 -9 11 -13 15}
-                 #{1 -3 5 -7 9 -11 13 -15}
-                 #{1 -1 2 -2 4 -4 8 -8})))
+                       #{1 -3 5 -7 9 -11 13 -15}
+                       #{1 -1 2 -2 4 -4 8 -8})))
     (is (= true  (n131 #{-10 9 -8 7 -6 5 -4 3 -2 1}
-                 #{10 -9 8 -7 6 -5 4 -3 2 -1})))))
+                       #{10 -9 8 -7 6 -5 4 -3 2 -1})))))
 
 (deftest n135-test
   (testing "n135"
@@ -598,7 +598,7 @@
     (is (= [1 2 3 4 5 0 1] (n137 1234501 10)))
     (is (= [0] (n137 0 11)))
     (is (= [1 0 0 1] (n137 9 2)))
-    (is (= [1 0] (let [n (rand-int 100000)](n137 n n))))
+    (is (= [1 0] (let [n (rand-int 100000)] (n137 n n))))
     (is (= [16 18 5 24 15 1] (n137 Integer/MAX_VALUE 42)))))
 
 (deftest n137-recur-test
@@ -606,16 +606,16 @@
     (is (= [1 2 3 4 5 0 1] (n137-recur 1234501 10)))
     (is (= [0] (n137-recur 0 11)))
     (is (= [1 0 0 1] (n137-recur 9 2)))
-    (is (= [1 0] (let [n (rand-int 100000)](n137-recur n n))))
+    (is (= [1 0] (let [n (rand-int 100000)] (n137-recur n n))))
     (is (= [16 18 5 24 15 1] (n137-recur Integer/MAX_VALUE 42)))))
 
 (deftest n141-test
   (testing "n141"
     (let [notrump (n141 nil)]
-             (and (is (= {:suit :club :rank 9}  (notrump [{:suit :club :rank 9}
-                                                      {:suit :club :rank 9}])))
-                  (is (= {:suit :spade :rank 2} (notrump [{:suit :spade :rank 2}
-                                                      {:suit :club :rank 10}])))))
+      (and (is (= {:suit :club :rank 9}  (notrump [{:suit :club :rank 9}
+                                                   {:suit :club :rank 9}])))
+           (is (= {:suit :spade :rank 2} (notrump [{:suit :spade :rank 2}
+                                                   {:suit :club :rank 10}])))))
     (is (= {:suit :club :rank 10} ((n141 :club) [{:suit :spade :rank 2}
                                                  {:suit :club :rank 10}])))
     (is (= {:suit :heart :rank 8}
@@ -655,53 +655,53 @@
     (is (= 233168 (n148 1000 3 5)))
     (is (= "2333333316666668" (str (n148 100000000 3 5))))
     (is (= "110389610389889610389610"
-       (str (n148 (* 10000 10000 10000) 7 11))))
+           (str (n148 (* 10000 10000 10000) 7 11))))
     (is (= "1277732511922987429116"
-       (str (n148 (* 10000 10000 10000) 757 809))))
+           (str (n148 (* 10000 10000 10000) 757 809))))
     (is (= "4530161696788274281"
-       (str (n148 (* 10000 10000 1000) 1597 3571))))))
+           (str (n148 (* 10000 10000 1000) 1597 3571))))))
 
 (deftest clojure-153-test
   (testing "n153"
     (is (= (n153 #{#{\U} #{\s} #{\e \R \E} #{\P \L} #{\.}})
-       true))
+           true))
     (is (= (n153 #{#{:a :b :c :d :e}
-             #{:a :b :c :d}
-             #{:a :b :c}
-             #{:a :b}
-             #{:a}})
-       false))
+                   #{:a :b :c :d}
+                   #{:a :b :c}
+                   #{:a :b}
+                   #{:a}})
+           false))
     (is (= (n153 #{#{[1 2 3] [4 5]}
-             #{[1 2] [3 4 5]}
-             #{[1] [2] 3 4 5}
-             #{1 2 [3 4] [5]}})
-       true))
+                   #{[1 2] [3 4 5]}
+                   #{[1] [2] 3 4 5}
+                   #{1 2 [3 4] [5]}})
+           true))
     (is (= (n153 #{#{'a 'b}
-             #{'c 'd 'e}
-             #{'f 'g 'h 'i}
-             #{''a ''c ''f}})
-       true))
+                   #{'c 'd 'e}
+                   #{'f 'g 'h 'i}
+                   #{''a ''c ''f}})
+           true))
     (is (= (n153 #{#{'(:x :y :z) '(:x :y) '(:z) '()}
-             #{#{:x :y :z} #{:x :y} #{:z} #{}}
-             #{'[:x :y :z] [:x :y] [:z] [] {}}})
-       false))
+                   #{#{:x :y :z} #{:x :y} #{:z} #{}}
+                   #{'[:x :y :z] [:x :y] [:z] [] {}}})
+           false))
     (is (= (n153 #{#{(= "true") false}
-             #{:yes :no}
-             #{(class 1) 0}
-             #{(symbol "true") 'false}
-             #{(keyword "yes") ::no}
-             #{(class '1) (int \0)}})
-       false))
+                   #{:yes :no}
+                   #{(class 1) 0}
+                   #{(symbol "true") 'false}
+                   #{(keyword "yes") ::no}
+                   #{(class '1) (int \0)}})
+           false))
     (is (= (n153 #{#{distinct?}
-             #{#(-> %) #(-> %)}
-             #{#(-> %) #(-> %) #(-> %)}
-             #{#(-> %) #(-> %) #(-> %)}})
-       true))
-    (is (= (n153 #{#{(#(-> *)) + (quote mapcat) #_ nil}
-             #{'+ '* mapcat (comment mapcat)}
-             #{(do) set contains? nil?}
-             #{, , , #_, , empty?}})
-       false))))
+                   #{#(-> %) #(-> %)}
+                   #{#(-> %) #(-> %) #(-> %)}
+                   #{#(-> %) #(-> %) #(-> %)}})
+           true))
+    (is (= (n153 #{#{(#(-> *)) + (quote mapcat) #_nil}
+                   #{'+ '* mapcat (comment mapcat)}
+                   #{(do) set contains? nil?}
+                   #{#_empty?}})
+           false))))
 
 (deftest clojure-n157-test
   (testing "n157"
@@ -712,21 +712,21 @@
 (deftest clojure-n158
   (testing "n158"
     (is (= 10 ((n158 (fn [a]
-                 (fn [b]
-                   (fn [c]
-                     (fn [d]
-                       (+ a b c d))))))
-           1 2 3 4)))
+                       (fn [b]
+                         (fn [c]
+                           (fn [d]
+                             (+ a b c d))))))
+               1 2 3 4)))
     (is (= 24 ((n158 (fn [a]
-                 (fn [b]
-                   (fn [c]
-                     (fn [d]
-                       (* a b c d))))))
-           1 2 3 4)))
+                       (fn [b]
+                         (fn [c]
+                           (fn [d]
+                             (* a b c d))))))
+               1 2 3 4)))
     (is (= 25 ((n158 (fn [a]
-                 (fn [b]
-                   (* a b))))
-           5 5)))))
+                       (fn [b]
+                         (* a b))))
+               5 5)))))
 
 (deftest clojure-n166-test
   (testing "4clj n166"

@@ -49,7 +49,7 @@
     [& args]
     (apply f (reverse args))))
 
- (defn n49
+(defn n49
   "https://www.4clojure.com/problem/49#prob-title split-at"
   [n lst]
   (vector (take n lst) (drop n lst)))

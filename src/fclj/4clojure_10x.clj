@@ -8,7 +8,7 @@
               (< a b) (gcd a (- b a))
               (> a b) (gcd (- a b) b)))
           (lcm [a b]
-            (/ (* a b) (gcd a b)))]
+               (/ (* a b) (gcd a b)))]
     (reduce lcm a args)))
 
 (defn n102
@@ -70,8 +70,8 @@
 (defn n107
   [a]
   (letfn
-      [(power [n x]
-         (apply * (repeat n x)))]
+   [(power [n x]
+      (apply * (repeat n x)))]
     (partial power a)))
 
 (defn n108

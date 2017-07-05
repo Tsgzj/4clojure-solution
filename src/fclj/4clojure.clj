@@ -47,7 +47,7 @@
     (if (= x 2)
       [1 1]
       (let
-          [prev-list (n26 (dec x))]
+       [prev-list (n26 (dec x))]
         (conj
          prev-list
          (+ (last prev-list)
