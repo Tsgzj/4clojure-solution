@@ -16,8 +16,14 @@
   [n s]
   (letfn [(sum [l]
             (reduce + (flatten l)))
-          ()]
-    (sum s)))
+          (droplast
+            [l]
+            (if (not (sequential? (last l)))
+              (drop-last l)
+              (concat (butlast l) [(droplast (last l))])))]
+    (if (>= n (sum s))
+      s
+      (n112 n (droplast s)))))
 
 (defn n114
   "Global take-while"
