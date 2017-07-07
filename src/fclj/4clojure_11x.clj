@@ -11,9 +11,36 @@
              (partition-by identity seq)))]
     (rest (iterate pro s))))
 
+;; An unsuccessful attempt
+;; (defn n112
+;;   [n s]
+;;   (letfn [(sum [l]
+;;             (reduce + (flatten l)))
+;;           (droplast
+;;             [l]
+;;             (if (not (sequential? (last l)))
+;;               (butlast l)
+;;               (concat (butlast l) [(droplast (last l))])))]
+;;     (if (>= n (sum s))
+;;       s
+;;       (n112 n (droplast s)))))
+
 (defn n112
   "Seques Horribilis"
-  [n s])
+  [n s]
+  (first
+   ((fn sh
+     [n [x & xs]]
+     (cond
+       (nil? x) [x n]
+       (coll? x) (let [[y m] (sh n x)
+                       [z l] (sh m xs)]
+                   [(cons y z) l])
+       :else (if (>= n x)
+               (let [[y m] (sh (- n x) xs)]
+                 [(cons x y) m])
+               ['() n])))
+    n s)))
 
 (defn n114
   "Global take-while"
