@@ -25,7 +25,7 @@
 ;;       s
 ;;       (n112 n (droplast s)))))
 
-(defn n112
+(defn n112S
   "Seques Horribilis"
   [n s]
   (first
@@ -41,6 +41,16 @@
                  [(cons x y) m])
                ['() n])))
     n s)))
+
+(defn n112
+  "Seques Horribilis"
+  [n [x & xs]]
+  (cond
+    (nil? x) []
+    (coll? x) (concat [(n112 n x)]
+                      (n112 (- n (reduce + (flatten x))) xs))
+    (>= n x) (concat [x] (n112 (- n x) xs))
+    :else []))
 
 (defn n114
   "Global take-while"
