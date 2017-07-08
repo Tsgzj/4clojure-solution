@@ -1,5 +1,10 @@
 (ns fclj.4clojure-06x)
 
+(defn n60
+  "Sequence Reductions"
+  [f coll])
+
+
 (defn n61
   "map construction"
   [k v]
