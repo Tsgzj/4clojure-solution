@@ -27,6 +27,16 @@
   [n & f]
   (reductions #(%2 %1) n (cycle f)))
 
+(defn n146
+  [m]
+  (mapcat
+   (fn [h]
+     (for [x (second h)]
+       (cons [(first h)
+              (first x)]
+             (rest x))))
+   m))
+
 (defn n147
   "Pascal's Trapezoid"
   [p]
