@@ -29,13 +29,23 @@
 
 (defn n146
   [m]
-  (mapcat
-   (fn [h]
-     (for [x (second h)]
-       (cons [(first h)
-              (first x)]
-             (rest x))))
-   m))
+  (apply
+   merge
+   (mapcat
+    (fn [h]
+      (for [x (second h)]
+        (hash-map [(first h)
+                   (first x)]
+                  (second x))))
+    m)))
+
+;; a shorter solution
+(defn n146s
+  [m]
+  (into {}
+         (for [[k sub-map] m
+               [k2 v] sub-map]
+           [[k k2] v])))
 
 (defn n147
   "Pascal's Trapezoid"

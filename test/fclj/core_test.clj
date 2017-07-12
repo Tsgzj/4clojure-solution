@@ -664,6 +664,34 @@
     (is (= (take 5 (n144 3 #(- % 3) #(+ 5 %))) [3 0 5 2 7]))
     (is (= (take 12 (n144 0 inc dec inc dec inc)) [0 1 0 1 0 1 2 1 2 1 2 3]))))
 
+(deftest clojure-146-test
+  (testing "n146"
+    (is (= (n146 '{a {p 1, q 2}
+                   b {m 3, n 4}})
+           '{[a p] 1, [a q] 2
+             [b m] 3, [b n] 4}))
+    (is (= (n146 '{[1] {a b c d}
+                   [2] {q r s t u v w x}})
+           '{[[1] a] b, [[1] c] d,
+             [[2] q] r, [[2] s] t,
+             [[2] u] v, [[2] w] x}))
+    (is (= (n146 '{m {1 [a b c] 3 nil}})
+           '{[m 1] [a b c], [m 3] nil}))))
+
+(deftest clojure-146s-test
+  (testing "n146"
+    (is (= (n146s '{a {p 1, q 2}
+                   b {m 3, n 4}})
+           '{[a p] 1, [a q] 2
+             [b m] 3, [b n] 4}))
+    (is (= (n146s '{[1] {a b c d}
+                   [2] {q r s t u v w x}})
+           '{[[1] a] b, [[1] c] d,
+             [[2] q] r, [[2] s] t,
+             [[2] u] v, [[2] w] x}))
+    (is (= (n146s '{m {1 [a b c] 3 nil}})
+           '{[m 1] [a b c], [m 3] nil}))))
+
 (deftest clojure-147-test
   (testing "4clj n147"
     (is (= (second (n147 [2 3 2])) [2 5 5 2]))
