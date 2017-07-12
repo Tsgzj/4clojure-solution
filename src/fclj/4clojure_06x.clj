@@ -2,8 +2,15 @@
 
 (defn n60
   "Sequence Reductions"
-  [f coll])
-
+  ([f coll]
+   (n60 f (first coll) (rest coll)))
+  ([f init coll]
+   (lazy-seq
+    (if (empty? coll)
+      (list init)
+      (cons init
+            (n60 f (f init (first coll))
+                 (rest coll)))))))
 
 (defn n61
   "map construction"

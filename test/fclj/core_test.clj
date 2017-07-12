@@ -250,6 +250,12 @@
     (is (= ["HELLO" 5] ((n59 #(.toUpperCase %) count) "hello")))
     (is (= [2 6 4] ((n59 :a :c :b) {:a 2, :b 4, :c 6, :d 8 :e 10})))))
 
+(deftest clojure-n60-test
+  (testing "n60"
+    (is (= (take 5 (n60 + (range))) [0 1 3 6 10]))
+    (is (= (n60 conj [1] [2 3 4]) [[1] [1 2] [1 2 3] [1 2 3 4]]))
+    (is (= (last (n60 * 2 [3 4 5])) (reduce * 2 [3 4 5]) 120))))
+
 (deftest clojure-n61-test
   (testing "4clj n61"
     (is (= (n61 [:a :b :c] [1 2 3]) {:a 1, :b 2, :c 3}))
