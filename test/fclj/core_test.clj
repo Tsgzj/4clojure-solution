@@ -16,7 +16,8 @@
             [fclj.4clojure-13x :refer :all]
             [fclj.4clojure-14x :refer :all]
             [fclj.4clojure-15x :refer :all]
-            [fclj.4clojure-16x :refer :all]))
+            [fclj.4clojure-16x :refer :all]
+            [fclj.4clojure-17x :refer :all]))
 
 (defmacro test-list
   [f lst]
