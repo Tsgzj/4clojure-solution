@@ -6,13 +6,20 @@
   (letfn [(decode [x]
             (if (> 10 x) [x] (conj (decode (quot x 10)) (rem x 10))))
           (encode [x]
-            (reduce #(+ (* 10 %) %2) x))
-          (next-p [n]
-            (let [N (decode n)
-                  L (count N)
-                  H (quot L 2)]
-                ))]
-    (next-p n)))
+            (reduce #(+ (* 10 %) %2) 0 x))
+          (next-p [x]
+            (let [N (decode x)
+                  n (count N)
+                  l (quot n 2)
+                  H (drop-last l N)
+                  H1 (decode (inc (encode H)))
+                  L (reverse (take l H))
+                  L1 (reverse (take l H1))
+                  res (encode (concat H L))]
+              (if (>= res x)
+                res
+                (encode (concat H1 L1)))))]
+    (iterate (comp next-p inc) (next-p n))))
 
 (defn n153
   "Pairwise Disjoint Set"
