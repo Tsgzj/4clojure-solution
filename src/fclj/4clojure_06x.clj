@@ -47,3 +47,12 @@
                     (not-any? #(= 0 (mod n %))
                               (range 2 (inc (Math/sqrt n))))))
                 (iterate inc 2))))
+
+(defn n69
+  [f & maps]
+  (let [K (set (mapcat keys maps))
+        V (map (fn [k]
+                 (vector k (filter #(not (nil? %))
+                                   (map #(get % k) maps)))) K)]
+    (apply hash-map
+           (mapcat #(vector (first %) (reduce f (second %))) V))))
