@@ -619,6 +619,20 @@
     (is (= true  (n131 #{-10 9 -8 7 -6 5 -4 3 -2 1}
                        #{10 -9 8 -7 6 -5 4 -3 2 -1})))))
 
+(deftest clojure-132-test
+  (testing "n132"
+    (is (= '(1 :less 6 :less 7 4 3) (n132 < :less [1 6 7 4 3])))
+    (is (= '(2) (n132 > :more [2])))
+    (is (= [0 1 :x 2 :x 3 :x 4]  (n132 #(and (pos? %) (< % %2)) :x (range 5))))
+    (is (empty? (n132 > :more ())))
+    (is (= [0 1 :same 1 2 3 :same 5 8 13 :same 21]
+     (take 12 (->> [0 1]
+                     (iterate (fn [[a b]] [b (+ a b)]))
+                     (map first) ; fibonacci numbers
+                     (n132 (fn [a b] ; both even or both odd
+                           (= (mod a 2) (mod b 2)))
+                         :same)))))))
+
 (deftest n135-test
   (testing "n135"
     (is (= 7  (n135 2 + 5)))

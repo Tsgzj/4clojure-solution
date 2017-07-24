@@ -18,6 +18,21 @@
                   (set (map #(reduce + %) (ps a))))
                 x)))))))
 
+(defn n132
+  "Insert between two items"
+  [f v l]
+  (if (empty? l)
+    '()
+    (cons (first l)
+          (mapcat #(rest (if (apply f %) (interpose v %) %))
+                  (partition 2 1 l)))))
+
+(defn t [p v xs]
+  (mapcat
+   #(if (p %1 %2) [%1 v] [%1])
+   xs
+   (lazy-cat (rest xs) (take 1 xs))))
+
 (defn n135
   [val & args]
   (reduce
