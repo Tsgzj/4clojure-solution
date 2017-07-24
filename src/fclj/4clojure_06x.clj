@@ -37,7 +37,7 @@
     a
     (n66 b (mod a b))))
 
-(defn n6 7
+(defn n67
   "First x prime numbers"
   [x]
   (take x
