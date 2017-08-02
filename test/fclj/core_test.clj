@@ -327,6 +327,18 @@
     (is (= (n77 ["veer" "lake" "item" "kale" "mite" "ever"])
            #{#{"veer" "ever"} #{"lake" "kale"} #{"mite" "item"}}))))
 
+(deftest clojure-n78
+  (testing "4clj n78"
+    (is (= (letfn [(triple [x] #(sub-two (* 3 x)))
+               (sub-two [x] #(stop?(- x 2)))
+               (stop? [x] (if (> x 50) x #(triple x)))]
+         (n78 triple 2))
+       82))
+    (is (= (letfn [(my-even? [x] (if (zero? x) true #(my-odd? (dec x))))
+               (my-odd? [x] (if (zero? x) false #(my-even? (dec x))))]
+         (map (partial n78 my-even?) (range 6)))
+       [true false true false true false]))))
+
 (deftest clojure-n80-test
   (testing "4clj n80"
     (is (= (n80 6) true))

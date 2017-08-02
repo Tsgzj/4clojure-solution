@@ -45,4 +45,8 @@
 
 (defn n78
   "Reimplement Trampoline"
-  [f & args])
+  [f & args]
+  (loop [res (apply f args)]
+    (if (fn? res)
+      (recur (res))
+      res)))
