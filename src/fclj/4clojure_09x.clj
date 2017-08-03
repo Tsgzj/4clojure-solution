@@ -54,6 +54,19 @@
                        (partition 2 1 (n97-v2 (dec n))))
                   [1])))
 
+(defn n98
+  "Equivalence Classes"
+  [f D]
+  (let [r (map f D)
+        t (partition 2 (interleave D r))
+        p (group-by #(second %) t)]
+    (into #{}
+          (map #(into #{} (map first (second %))) p))))
+
+(defn n98-v2
+  [f D]
+  (set (map set (vals (group-by f D)))))
+
 (defn n99
   "Product Digits"
   [a b]
