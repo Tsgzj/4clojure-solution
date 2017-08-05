@@ -875,3 +875,18 @@
     (is (= (n171 []) []))
     (is (= (n171 [19 4 17 1 3 10 2 13 13 2 16 4 2 15 13 9 6 14 2 11])
            [[1 4] [6 6] [9 11] [13 17] [19 19]]))))
+
+(deftest clojure-n177-test
+  (testing "4clj n177"
+    (is (n177 "This string has no brackets."))
+    (is (n177 "class Test {
+      public static void main(String[] args) {
+        System.out.println(\"Hello world.\");
+      }
+    }"))
+    (is (not (n177 "(start, end]")))
+    (is (not (n177 "())")))
+    (is (not (n177 "[ { ] } ")))
+    (is (n177 "([]([(()){()}(()(()))(([[]]({}()))())]((((()()))))))"))
+    (is (not (n177 "([]([(()){()}(()(()))(([[]]({}([)))())]((((()()))))))")))
+    (is (not (n177 "[")))))
