@@ -23,7 +23,8 @@
 (defn n103
   "k-combination"
   [n c]
-  ())
+  (if (< (count c) n)
+    #{}()))
 
 (defn n105-wrong
   "keys and values"
