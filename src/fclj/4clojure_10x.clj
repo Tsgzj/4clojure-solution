@@ -23,10 +23,10 @@
 (defn n103
   "k-combination"
   [n c]
-  (filter #(= n (count %))
-          (reduce (fn [a x]
-                    (set (concat a (map #(set (concat #{x} %)) a))))
-                  #{#{}} c)))
+  (set (filter #(= n (count %))
+               (reduce (fn [a x]
+                         (set (concat a (map #(set (concat #{x} %)) a))))
+                       #{#{}} c))))
 
 
 (defn n105-wrong

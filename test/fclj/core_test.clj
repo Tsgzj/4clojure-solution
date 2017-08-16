@@ -506,6 +506,16 @@
     (is (= (n102 "multi-word-key") "multiWordKey"))
     (is (= (n102 "leaveMeAlone") "leaveMeAlone"))))
 
+(deftest clojure-n103-test
+  (testing "n103"
+    (is (= (n103 1 #{4 5 6}) #{#{4} #{5} #{6}}))
+    (is (= (n103 10 #{4 5 6}) #{}))
+    (is (= (n103 2 #{0 1 2}) #{#{0 1} #{0 2} #{1 2}}))
+    (is (= (n103 3 #{0 1 2 3 4}) #{#{0 1 2} #{0 1 3} #{0 1 4} #{0 2 3} #{0 2 4}
+                             #{0 3 4} #{1 2 3} #{1 2 4} #{1 3 4} #{2 3 4}}))
+    (is (= (n103 2 #{[1 2 3] :a "abc" "efg"}) #{#{[1 2 3] :a} #{[1 2 3] "abc"} #{[1 2 3] "efg"}
+                                          #{:a "abc"} #{:a "efg"} #{"abc" "efg"}}))))
+
 (deftest clojure-n105-test
   (testing "n105"
     (is (= {} (n105 [])))
