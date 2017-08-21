@@ -870,39 +870,39 @@
                          (* a b))))
                5 5)))))
 
-(deftest clojure-n163-test
-  (testing "4clj n163"
-    (is (= (take 6 (map #(take 5 %) (n163 str 3 2)))
+(deftest clojure-n168-test
+  (testing "4clj n168"
+    (is (= (take 6 (map #(take 5 %) (n168 str 3 2)))
            [["32" "33" "34" "35" "36"]
             ["42" "43" "44" "45" "46"]
             ["52" "53" "54" "55" "56"]
             ["62" "63" "64" "65" "66"]
             ["72" "73" "74" "75" "76"]
             ["82" "83" "84" "85" "86"]]))
-    (is (= (n163 * 3 5 5 7)
+    (is (= (n168 * 3 5 5 7)
            [[15 18 21 24 27 30 33]
             [20 24 28 32 36 40 44]
             [25 30 35 40 45 50 55]
             [30 36 42 48 54 60 66]
             [35 42 49 56 63 70 77]]))
-    (is (= (n163 #(/ % (inc %2)) 1 0 6 4)
+    (is (= (n168 #(/ % (inc %2)) 1 0 6 4)
            [[1/1 1/2 1/3 1/4]
             [2/1 2/2 2/3 1/2]
             [3/1 3/2 3/3 3/4]
             [4/1 4/2 4/3 4/4]
             [5/1 5/2 5/3 5/4]
             [6/1 6/2 6/3 6/4]]))
-    (is (= (class (n163 (juxt bit-or bit-xor)))
-           (class (n163 (juxt quot mod) 13 21))
+    (is (= (class (n168 (juxt bit-or bit-xor)))
+           (class (n168 (juxt quot mod) 13 21))
            (class (lazy-seq))))
-    (is (= (class (nth (n163 (constantly 10946)) 34))
-           (class (nth (n163 (constantly 0) 5 8) 55))
+    (is (= (class (nth (n168 (constantly 10946)) 34))
+           (class (nth (n168 (constantly 0) 5 8) 55))
            (class (lazy-seq))))
     (is (= (let [m 377 n 610 w 987
                  check (fn [f s] (every? true? (map-indexed f s)))
-                 row (take w (nth (n163 vector) m))
-                 column (take w (map first (n163 vector m n)))
-                 diagonal (map-indexed #(nth %2 %) (n163 vector m n w w))]
+                 row (take w (nth (n168 vector) m))
+                 column (take w (map first (n168 vector m n)))
+                 diagonal (map-indexed #(nth %2 %) (n168 vector m n w w))]
              (and (check #(= %2 [m %]) row)
                   (check #(= %2 [(+ m %) n]) column)
                   (check #(= %2 [(+ m %) (+ n %)]) diagonal)))
