@@ -11,6 +11,18 @@
                (/ (* a b) (gcd a b)))]
     (reduce lcm a args)))
 
+;; Recursion won't work here
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (defn n101                                       ;;
+;;   [i j]                                          ;;
+;;   (if (= 0 (min (count i) (count j)))            ;;
+;;     (max (count i) (count j))                    ;;
+;;     (let [cost (if (= (first i) (first j)) 0 1)] ;;
+;;       (min (inc (n101 (rest i) j))               ;;
+;;            (inc (n101 i (rest j)))               ;;
+;;            (+ cost (n101 (rest i) (rest j))))))) ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (defn n102
   "intoCamelCase"
   [s]
