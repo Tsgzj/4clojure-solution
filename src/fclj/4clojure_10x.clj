@@ -33,7 +33,9 @@
  c 3 2 2 1 3
  f 4 3 3 2 2
 
-  the cell value is min((inc [cell above]) (inc [cell left]) (+ [cell left up] (if (= w1[i] w2[j]) 0 1))
+ the cell value is min((inc [cell above])
+                       (inc [cell left])
+                       (+ [cell left up] (if (= w1[i] w2[j]) 0 1))
  )
 
 (defn n101
