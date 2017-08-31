@@ -23,6 +23,36 @@
 ;;            (+ cost (n101 (rest i) (rest j))))))) ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(comment
+  calculate the matrix
+
+     a b c d
+   0 1 2 3 4
+ a 1 0 1 2 3
+ e 2 1 1 2 3
+ c 3 2 2 1 3
+ f 4 3 3 2 2
+
+  the cell value is min((inc [cell above]) (inc [cell left]) (+ [cell left up] (if (= w1[i] w2[j]) 0 1))
+ )
+
+(defn n101
+  [a b]
+  (letfn [(cell [pre cur idx same?]
+            (min (inc (nth pre idx))
+                 (inc (last cur))
+                 (+ (nth pre (dec idx)) (if same? 0 1))))]
+    (loop [j 1
+           rows (inc (count b))
+           pre (range (inc (count a)))]
+      (if (= j rows)
+        (last pre)
+        (let [next-row (reduce (fn [cur i]
+                                 (let [same? (= (nth a (dec i)) (nth b (dec j)))]
+                                   (conj cur (cell pre cur i same?))))
+                               [j] (range 1 (count pre)))]
+          (recur (inc j) rows next-row))))))
+
 (defn n102
   "intoCamelCase"
   [s]
