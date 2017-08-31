@@ -24,7 +24,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (comment
-  calculate the matrix
+ " calculate the matrix
 
      a b c d
    0 1 2 3 4
@@ -36,7 +36,7 @@
  the cell value is min((inc [cell above])
                        (inc [cell left])
                        (+ [cell left up] (if (= w1[i] w2[j]) 0 1))
- )
+ ")
 
 (defn n101
   [a b]
