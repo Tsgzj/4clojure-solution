@@ -500,6 +500,18 @@
     (is (== (n100 3/4 1/6) 3/2))
     (is (== (n100 7 5/7 2 3/5) 210))))
 
+(deftest clojure-n101-test
+  (testing "n101"
+    (is (= (n101 "kitten" "sitting") 3))
+    (is (= (n101 "closure" "clojure") (n101 "clojure" "closure") 1))
+    (is (= (n101 "xyx" "xyyyx") 2))
+    (is (= (n101 "" "123456") 6))
+    (is (= (n101 "Clojure" "Clojure") (n101 "" "") (n101 [] []) 0))
+    (is (= (n101 [1 2 3 4] [0 2 3 4 5]) 2))
+    (is (= (n101 '(:a :b :c :d) '(:a :d)) 2))
+    (is (= (n101 "ttttattttctg" "tcaaccctaccat") 10))
+    (is (= (n101 "gaattctaatctc" "caaacaaaaaattt") 9))))
+
 (deftest clojure-n102-test
   (testing "n102"
     (is (= (n102 "something") "something"))
