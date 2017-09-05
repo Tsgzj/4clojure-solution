@@ -72,6 +72,18 @@
                          (set (concat a (map #(set (concat #{x} %)) a))))
                        #{#{}} c))))
 
+(defn n104
+  "Write Roman Numerals"
+  [n]
+  (let [rm '(("" "M" "MM" "MMM")
+             ("" "C" "CC" "CCC" "CD" "D" "DC" "DCC" "DCCC" "CM")
+             ("" "X" "XX"  "XXX" "XL" "L" "LX" "LXX" "LXXX" "XC")
+             ("" "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX"))]
+    (reduce str (reverse
+                 (map #(nth (nth rm %2) %)
+                      (seq (map #(- (int %) 48) (reverse (str n))))
+                      [3 2 1 0])))))
+
 
 (defn n105-wrong
   "keys and values"
