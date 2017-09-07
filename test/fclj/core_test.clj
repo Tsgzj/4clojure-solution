@@ -17,7 +17,8 @@
             [fclj.4clojure-14x :refer :all]
             [fclj.4clojure-15x :refer :all]
             [fclj.4clojure-16x :refer :all]
-            [fclj.4clojure-17x :refer :all]))
+            [fclj.4clojure-17x :refer :all]
+            [fclj.4clojure-19x :refer :all]))
 
 (defmacro test-list
   [f lst]
@@ -960,3 +961,11 @@
     (is (n177 "([]([(()){()}(()(()))(([[]]({}()))())]((((()()))))))"))
     (is (not (n177 "([]([(()){()}(()(()))(([[]]({}([)))())]((((()()))))))")))
     (is (not (n177 "[")))))
+
+(deftest clojure-n195-test
+  (testing "4clj n195"
+    (is (= [#{""} #{"()"} #{"()()" "(())"}] (map (fn [n] (n195 n)) [0 1 2])))
+    (is (= #{"((()))" "()()()" "()(())" "(())()" "(()())"} (n195 3)))
+    (is (= 16796 (count (n195 10))))
+    (is (= (nth (sort (filter #(.contains ^String % "(()()()())") (n195 9))) 6) "(((()()()())(())))"))
+    (is (= (nth (sort (n195 12)) 5000) "(((((()()()()()))))(()))"))))
