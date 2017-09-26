@@ -401,6 +401,13 @@
     (is (= 300 (count (n90 (into #{} (range 10))
                            (into #{} (range 30))))))))
 
+(deftest clojure-n92-test
+  (testing "n92"
+    (is (= 14 (n92 "XIV")))
+    (is (= 827 (n92 "DCCCXXVII")))
+    (is (= 3999 (n92 "MMMCMXCIX")))
+    (is (= 48 (n92 "XLVIII")))))
+
 (deftest clojure-n93-test
   (testing "4clojure n93"
     (is (= (n93 [["Do"] ["Nothing"]])
