@@ -50,3 +50,22 @@
     (if (fn? res)
       (recur (res))
       res)))
+
+(defn n79
+  "Triangle Minimal Path"
+  [t]
+  (let [f (first (first t))]
+    (if (= 1 (count t))
+      f
+      (min (+ f (n79 (map butlast (rest t))))
+           (+ f (n79 (map (partial drop 1) (rest t))))))))
+
+(defn n79-alt
+  "Triangle Minimal Path"
+  [t]
+  (reduce (fn [x]
+            (concat
+             (map #(min (+ % %2) (+ % %3))
+                  (nth x 1) (butlast (first x)) (drop 1 (first x)))
+             (drop 2 x)))
+          t))
