@@ -338,7 +338,33 @@
     (is (= (letfn [(my-even? [x] (if (zero? x) true #(my-odd? (dec x))))
                (my-odd? [x] (if (zero? x) false #(my-even? (dec x))))]
          (map (partial n78 my-even?) (range 6)))
-       [true false true false true false]))))
+           [true false true false true false]))))
+
+(deftest clojure-n79
+  (testing "4clj n79"
+    (is (= 7 (n79 '([1]
+               [2 4]
+               [5 1 4]
+               [2 3 4 5])))) ; 1->2->1->3
+    (is (= 20 (n79 '([3]
+                [2 4]
+                [1 9 3]
+                [9 9 2 4]
+                [4 6 6 7 8]
+                     [5 7 3 5 1 4])))))) ; 3->4->3->2->7->1))
+
+(deftest clojure-n79-alt
+  (testing "4clj n79"
+    (is (= 7 (n79-alt '([1]
+                    [2 4]
+                    [5 1 4]
+                    [2 3 4 5])))) ; 1->2->1->3
+    (is (= 20 (n79-alt '([3]
+                     [2 4]
+                     [1 9 3]
+                     [9 9 2 4]
+                     [4 6 6 7 8]
+                     [5 7 3 5 1 4]))))))
 
 (deftest clojure-n80-test
   (testing "4clj n80"
