@@ -27,10 +27,10 @@
   (if (= n 1)
     1
     (letfn
-     [(gcd [a b]
-        (if (= 0 b)
-          a
-          (gcd b (mod a b))))]
+        [(gcd [a b]
+           (if (= 0 b)
+             a
+             (gcd b (mod a b))))]
       (count
        (filter #(= 1 (gcd n %))
                (range 1 n))))))
@@ -63,9 +63,10 @@
 (defn n79-alt
   "Triangle Minimal Path"
   [t]
-  (reduce (fn [x]
-            (concat
-             (map #(min (+ % %2) (+ % %3))
-                  (nth x 1) (butlast (first x)) (drop 1 (first x)))
-             (drop 2 x)))
-          t))
+  (first
+   (reduce #(map +
+                 (map min
+                      (butlast %)
+                      (rest %))
+                 %2)
+           (reverse t))))
