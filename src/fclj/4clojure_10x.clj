@@ -127,6 +127,20 @@
                  (remove nil? %))
               (partition-by keyword? (interpose nil l)))))
 
+(defn n106
+  [a b]
+  (if (= a b)
+    1
+    (letfn [(p [x]
+              (if (even? x)
+                [(/ x 2) (* x 2) (+ x 2)]
+                [(* x 2) (+ x 2)]))
+            (h [l t n]
+              (if (some #(= % t) l)
+                (inc n)
+                (h (mapcat p l) t (inc n))))]
+           (h (p a) b 1))))
+
 (defn n107
   [a]
   (letfn
