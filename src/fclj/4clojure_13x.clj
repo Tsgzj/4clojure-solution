@@ -57,3 +57,26 @@
     (if (zero? a)
       r
       (recur (quot a b) b (cons (rem a b) r)))))
+
+(defn n138
+  [i j]
+  (letfn [(lst [x y]
+            (if (> x y)
+              nil
+              (cons x (lst (* x x) y))))
+          (sqr [n]
+            (map #(clojure.string/join
+                   (concat (repeat (Math/abs (- % n)) " ")
+                           (repeat (- n (Math/abs (- % n))) "*")
+                           (repeat (Math/abs (- % n)) " ")))
+                 (range 1 (* n 2))))
+          (slice [l i]
+            (if (= (count l) (count i))
+                   l
+                   (cons (take (first i) l)
+                         (slice (drop (first i) l) (rest i)))))]
+    (let [d (mapcat str (lst i j))
+          l (count d)
+          e (int (Math/ceil (Math/sqrt l)))
+          raw (concat d (drop l (repeat (#(* % %) e) \*)))]
+      (slice raw (take (dec (* e 2)) (mapcat #(repeat 2 %) (iterate inc 1)))))))
