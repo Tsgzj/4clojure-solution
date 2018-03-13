@@ -1,5 +1,21 @@
 (ns fclj.4clojure-13x)
 
+(defn n130
+  "Tree reparenting"
+  [node tree]
+  ;; find the path to the node
+  ;; rotate each element on the path
+  )
+
+(defn findpath [node tree path]
+  (if (empty? tree)
+    path
+    (if (= node (first tree))
+      path
+      (let [path (conj path (first tree))]
+        (findpath node (first (rest tree)) path)
+        (findpath node (second (rest tree)) path)))))
+
 (defn n131
   [& x]
   (if (== 1 (count x))

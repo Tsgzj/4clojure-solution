@@ -82,3 +82,14 @@
   "https://www.4clojure.com/problem/29 Get the Caps"
   [x]
   (apply str (filter (set (map char (range 65 91))) x)))
+
+(defn folding-paper
+  "Given a paper tape, printing the pattern after n-times folding
+  eg. 1 folding:  0
+      2 foldings: 001
+      3 foldings: 0010011"
+  [n]
+  (if (= 0 n)
+    '(0)
+    (concat (folding-paper (dec n))
+            (cons 0 (map #(- 1 %) (reverse (folding-paper (dec n))))))))
