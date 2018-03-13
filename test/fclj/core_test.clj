@@ -1011,3 +1011,10 @@
     (is (= 16796 (count (n195 10))))
     (is (= (nth (sort (filter #(.contains ^String % "(()()()())") (n195 9))) 6) "(((()()()())(())))"))
     (is (= (nth (sort (n195 12)) 5000) "(((((()()()()()))))(()))"))))
+
+(deftest folding-paper-test
+  (testing "folding-paper"
+    (is (= '(0) (folding-paper 0)))
+    (is (= '(0 0 1) (folding-paper 1)))
+    (is (= '(0 0 1 0 0 1 1) (folding-paper 2)))
+    (is (= '(0 0 1 0 0 1 1 0 0 0 1 1 0 1 1) (folding-paper 3)))))
