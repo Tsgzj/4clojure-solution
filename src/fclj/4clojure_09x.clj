@@ -8,6 +8,19 @@
          y b]
      [x y])))
 
+(defn n92
+  "Read roman numbers"
+  [t]
+  (let [v {\I 1, \V 5, \X 10, \L 50, \C 100, \D 500, \M 1000}]
+    (letfn [(d [t p n]
+              (if (empty? t)
+                n
+                (let [c (v (first t))]
+                  (if (> c p)
+                    (d (rest t) c (+ n (* -2 p) c))
+                    (d (rest t) c (+ n c))))))]
+      (d t 0 0))))
+
 (defn n93
   "Partially flatten"
   [l]
@@ -53,6 +66,19 @@
                   (map #(+ (first %) (second %))
                        (partition 2 1 (n97-v2 (dec n))))
                   [1])))
+
+(defn n98
+  "Equivalence Classes"
+  [f D]
+  (let [r (map f D)
+        t (partition 2 (interleave D r))
+        p (group-by #(second %) t)]
+    (into #{}
+          (map #(into #{} (map first (second %))) p))))
+
+(defn n98-v2
+  [f D]
+  (set (map set (vals (group-by f D)))))
 
 (defn n99
   "Product Digits"

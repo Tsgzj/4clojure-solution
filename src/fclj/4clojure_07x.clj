@@ -27,10 +27,10 @@
   (if (= n 1)
     1
     (letfn
-     [(gcd [a b]
-        (if (= 0 b)
-          a
-          (gcd b (mod a b))))]
+        [(gcd [a b]
+           (if (= 0 b)
+             a
+             (gcd b (mod a b))))]
       (count
        (filter #(= 1 (gcd n %))
                (range 1 n))))))
@@ -45,4 +45,28 @@
 
 (defn n78
   "Reimplement Trampoline"
-  [f & args])
+  [f & args]
+  (loop [res (apply f args)]
+    (if (fn? res)
+      (recur (res))
+      res)))
+
+(defn n79
+  "Triangle Minimal Path"
+  [t]
+  (let [f (first (first t))]
+    (if (= 1 (count t))
+      f
+      (min (+ f (n79 (map butlast (rest t))))
+           (+ f (n79 (map (partial drop 1) (rest t))))))))
+
+(defn n79-alt
+  "Triangle Minimal Path"
+  [t]
+  (first
+   (reduce #(map +
+                 (map min
+                      (butlast %)
+                      (rest %))
+                 %2)
+           (reverse t))))

@@ -11,6 +11,50 @@
                (/ (* a b) (gcd a b)))]
     (reduce lcm a args)))
 
+;; Recursion won't work here
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (defn n101                                       ;;
+;;   [i j]                                          ;;
+;;   (if (= 0 (min (count i) (count j)))            ;;
+;;     (max (count i) (count j))                    ;;
+;;     (let [cost (if (= (first i) (first j)) 0 1)] ;;
+;;       (min (inc (n101 (rest i) j))               ;;
+;;            (inc (n101 i (rest j)))               ;;
+;;            (+ cost (n101 (rest i) (rest j))))))) ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(comment
+ " calculate the matrix
+
+     a b c d
+   0 1 2 3 4
+ a 1 0 1 2 3
+ e 2 1 1 2 3
+ c 3 2 2 1 3
+ f 4 3 3 2 2
+
+ the cell value is min((inc [cell above])
+                       (inc [cell left])
+                       (+ [cell left up] (if (= w1[i] w2[j]) 0 1))
+ ")
+
+(defn n101
+  [a b]
+  (letfn [(cell [pre cur idx same?]
+            (min (inc (nth pre idx))
+                 (inc (last cur))
+                 (+ (nth pre (dec idx)) (if same? 0 1))))]
+    (loop [j 1
+           rows (inc (count b))
+           pre (range (inc (count a)))]
+      (if (= j rows)
+        (last pre)
+        (let [next-row (reduce (fn [cur i]
+                                 (let [same? (= (nth a (dec i)) (nth b (dec j)))]
+                                   (conj cur (cell pre cur i same?))))
+                               [j] (range 1 (count pre)))]
+          (recur (inc j) rows next-row))))))
+
 (defn n102
   "intoCamelCase"
   [s]
@@ -23,7 +67,23 @@
 (defn n103
   "k-combination"
   [n c]
-  ())
+  (set (filter #(= n (count %))
+               (reduce (fn [a x]
+                         (set (concat a (map #(set (concat #{x} %)) a))))
+                       #{#{}} c))))
+
+(defn n104
+  "Write Roman Numerals"
+  [n]
+  (let [rm '(("" "M" "MM" "MMM")
+             ("" "C" "CC" "CCC" "CD" "D" "DC" "DCC" "DCCC" "CM")
+             ("" "X" "XX"  "XXX" "XL" "L" "LX" "LXX" "LXXX" "XC")
+             ("" "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX"))]
+    (reduce str (reverse
+                 (map #(nth (nth rm %2) %)
+                      (seq (map #(- (int %) 48) (reverse (str n))))
+                      [3 2 1 0])))))
+
 
 (defn n105-wrong
   "keys and values"
@@ -66,6 +126,20 @@
                  (first %)
                  (remove nil? %))
               (partition-by keyword? (interpose nil l)))))
+
+(defn n106
+  [a b]
+  (if (= a b)
+    1
+    (letfn [(p [x]
+              (if (even? x)
+                [(/ x 2) (* x 2) (+ x 2)]
+                [(* x 2) (+ x 2)]))
+            (h [l t n]
+              (if (some #(= % t) l)
+                (inc n)
+                (h (mapcat p l) t (inc n))))]
+           (h (p a) b 1))))
 
 (defn n107
   [a]

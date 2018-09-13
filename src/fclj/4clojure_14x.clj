@@ -27,6 +27,26 @@
   [n & f]
   (reductions #(%2 %1) n (cycle f)))
 
+(defn n146
+  [m]
+  (apply
+   merge
+   (mapcat
+    (fn [h]
+      (for [x (second h)]
+        (hash-map [(first h)
+                   (first x)]
+                  (second x))))
+    m)))
+
+;; a shorter solution
+(defn n146s
+  [m]
+  (into {}
+         (for [[k sub-map] m
+               [k2 v] sub-map]
+           [[k k2] v])))
+
 (defn n147
   "Pascal's Trapezoid"
   [p]

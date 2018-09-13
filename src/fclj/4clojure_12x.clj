@@ -8,6 +8,18 @@
                      (< x (reduce + (map #(* % %) digs)))))
                  coll)))
 
+(defn n121
+  "Universal Computation Engine"
+  [E]
+  (fn [M]
+    (letfn [(c [E]
+              (if (list? E)
+                (apply ({'+ + '- - '* * '/ /}
+                        (first E))
+                       (map c (rest E)))
+                (M E E)))]
+      (c E))))
+
 (defn n122
   "binary number
   using java integer"
