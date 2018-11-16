@@ -30,6 +30,17 @@
          (map #(hash-map (func %) [%])
               coll)))
 
+(defn n65
+  "Black Box Testing
+  To poke at map/set/list/vector and understand their behavior
+  only vector is reversible
+  we can empty all of these collections and compare
+  (= '() []) ==> true, these two has to be identified with reversible?
+  (= {} '()) ==> false, (= {} []) ==> false, (= #{} []) ==> false, (= #{} '()) ==> false
+  (= {} #{}) ==> false"
+  [x]
+  ({{} :map, #{} :set} (empty x) (if (reversible? x) :vector :list)))
+
 (defn n66
   "gcd"
   [a b]

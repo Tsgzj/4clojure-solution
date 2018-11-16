@@ -278,6 +278,14 @@
     (is (= (n63 count [[1] [1 2] [3] [1 2 3] [2 3]])
            {1 [[1] [3]], 2 [[1 2] [2 3]], 3 [[1 2 3]]}))))
 
+(deftest clojure-n65-test
+  (testing "n65"
+    (is (= :map (n65 {:a 1, :b 2})))
+    (is (= :list (n65 (range (rand-int 20)))))
+    (is (= :vector (n65 [1 2 3 4 5 6])))
+    (is (= :set (n65 #{10 (rand-int 5)})))
+    (is (= [:map :set :vector :list] (map n65 [{} #{} [] ()])))))
+
 (deftest clojure-n66-test
   (testing "4clj n66"
     (is (= (n66 2 4) 2))
